@@ -2472,10 +2472,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpawner: {fileID: 1380443044}
   activeDialouge: 0
+  textPanel: {fileID: 179017617}
   dialogue: {fileID: 2098501321}
   dialougeImage: {fileID: 1072637959}
-  characterImage: {fileID: 0}
-  EnemyImage: {fileID: 0}
+  DownArrow: {fileID: 1305802029}
+  characterImage: {fileID: 21300000, guid: 2002af4c51b4b9a4a824a8629e648285, type: 3}
+  EnemyImage: {fileID: 21300000, guid: 0871303da98b7ab46a07ad19c440aeb8, type: 3}
   textNum: 0
   endTextCheck: 0
 --- !u!1 &2098501319

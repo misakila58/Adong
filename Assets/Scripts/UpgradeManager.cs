@@ -29,9 +29,9 @@ public class UpgradeManager : MonoBehaviour
         {
             EnemySpawner.shopTime = true;
         }
-        else
+        else //다이얼로그 구현 중 여기서 계속 False로 바꿔줘서 다이얼로그 구현 시 애매한 부분이 있어 이부분 주석 처리 해놨음 바꿔야 되면 말해줘야함.
         {
-            EnemySpawner.shopTime = false;
+      //      EnemySpawner.shopTime = false;
         }
     }
 

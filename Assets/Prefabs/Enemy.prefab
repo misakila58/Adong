@@ -308,5 +308,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spd: 1
   hp: 0
-  startHp: 3
+  startHp: 30
   hpBar: {fileID: 3480994689125910886}

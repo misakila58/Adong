@@ -13,7 +13,8 @@ public class Shooting : MonoBehaviour
     
     void Update()
     {
-        Shoot();
+        if (!EnemySpawner.shopTime)
+            Shoot();
 
         if (timer <= PlayerStats.FireSpd && timer >= PlayerStats.FireSpd * 0.80f)
         {

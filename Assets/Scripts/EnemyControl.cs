@@ -11,16 +11,25 @@ public class EnemyControl : MonoBehaviour
 
     public Image hpBar;
 
+    private EnemySpawner enemySpawner;
+
     // Start is called before the first frame update
     void Start()
     {
         hp = startHp;
+
+        enemySpawner = GameObject.FindGameObjectWithTag("enemySpawner").GetComponent<EnemySpawner>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * spd * Time.deltaTime);                
+        transform.Translate(Vector3.down * spd * Time.deltaTime);
+
+        if (EnemySpawner.shopTime)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -29,12 +38,13 @@ public class EnemyControl : MonoBehaviour
         {
             Destroy(col.gameObject);
 
-            hp -= 1;
+            hp -= PlayerStats.Dmg;
             hpBar.gameObject.SetActive(true);
             hpBar.fillAmount = hp / startHp;
 
             if (hp <= 0)
             {
+                PlayerStats.UpgradeGage++;
                 Destroy(gameObject);
             }
         }

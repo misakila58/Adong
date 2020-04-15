@@ -7,24 +7,26 @@ public class EnemySpawner : MonoBehaviour
     private float timer = 0f;
     public float spawnDelay;
 
+    public static bool shopTime = false;
+
     public GameObject enemy;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject upgradePanel;
 
-    // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
 
-        if (timer <= 0)
+        if (timer <= 0 && !shopTime)
         {
             Vector2 spawnPos = new Vector2(Random.Range(-2f, 2f), 6.5f);
             Instantiate(enemy, spawnPos, transform.rotation);
             timer = spawnDelay;
+        }
+
+        if (PlayerStats.UpgradeGage >= 10)
+        {
+            upgradePanel.SetActive(true);
         }
     }
 }

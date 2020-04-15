@@ -19,6 +19,9 @@ public class PlayerStats : MonoBehaviour
     public static int Money;
     public int startMoney;
 
+    public static int UpgradeGage;
+    public int startUpgradeGage;
+
     void Start()
     {
         Dmg = startDmg;
@@ -26,5 +29,6 @@ public class PlayerStats : MonoBehaviour
         Spd = startSpd;
         FireSpd = startFireSpd;
         Money = startMoney;
+        UpgradeGage = startUpgradeGage;
     }
 }

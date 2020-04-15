@@ -66,9 +66,12 @@
     <Compile Include="Assets\Scripts\DragNShoot.cs" />
     <Compile Include="Assets\Scripts\EnemyControl.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\Perks.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Shooting.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
+    <Compile Include="Assets\Scripts\UpgradeManager.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/UNITYPROJECT/ADongForest/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

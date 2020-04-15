@@ -7,6 +7,7 @@ public class UpgradeManager : MonoBehaviour
 {
     public EnemySpawner enemySpawner;
     //public BossSpawner bossSpawner;
+    public DialougeManager dialougeManager;
 
     public Text[] nameText;
     public Text[] descriptionText;

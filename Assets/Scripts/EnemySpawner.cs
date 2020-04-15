@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public DialougeManager dialougeManager;
     private float timer = 0f;
     public float spawnDelay;
 
@@ -17,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if (timer <= 0 && !shopTime)
+        if (timer <= 0 && !shopTime )
         {
             Vector2 spawnPos = new Vector2(Random.Range(-2f, 2f), 6.5f);
             Instantiate(enemy, spawnPos, transform.rotation);

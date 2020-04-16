@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class DialougeManager : MonoBehaviour
 {
-
     public EnemySpawner enemySpawner;
     public bool activeDialouge;
     public GameObject textPanel;
@@ -18,28 +16,22 @@ public class DialougeManager : MonoBehaviour
     public Sprite characterImage;
     public Sprite EnemyImage;
 
-    
-
     string originDialogue;
     string subDialogue;
 
     [SerializeField]
-    private int textNum;
+    private int textNum = 0;
     [SerializeField]
     private bool endTextCheck;
     
-
     // Start is called before the first frame update
     void Start()
     {
         endTextCheck = true;
         //   dialougeImage = GetComponent<Image>();
+    }    
 
-    }
-
-    
-
-    public void DIalogueText() // 다이얼로그 시작 부분에서 해당 함수를 실행 시켜주면 됨 
+    public void DialogueText() // 다이얼로그 시작 부분에서 해당 함수를 실행 시켜주면 됨 
     {
         textPanel.SetActive(true);
         EnemySpawner.shopTime = true; // 텍스트 노출 시 멈추는 것을 하기 위해 이미 구현되어 있던 shopTime 을 가져다가 씀 
@@ -98,46 +90,34 @@ public class DialougeManager : MonoBehaviour
         else
         {
             endTextCheck = true;
-        }
- 
-    }
-    void Update()
-    {
-
+        } 
     }
 
     IEnumerator TypingAction() 
     {
-    
-            for (int i = 0; i < originDialogue.Length; i++)
-            {
-        
-                yield return new WaitForSeconds(0.05f); //채팅 창 딜레이 
+        for (int i = 0; i < originDialogue.Length; i++)
+        {
+            yield return new WaitForSeconds(0.05f); //채팅 창 딜레이 
 
-                subDialogue += originDialogue.Substring(0, i);
-                dialogue.text = subDialogue;
-                subDialogue = "";
+            subDialogue += originDialogue.Substring(0, i);
+            dialogue.text = subDialogue;
+            subDialogue = "";
             DownArrow.SetActive(false);
             if (endTextCheck == true)
             {
                 dialogue.text = originDialogue;
                 break;
             }
-            if (i+1 == originDialogue.Length) // 채팅의 끝까지 오면 엔드 텍스트를 활성화 시켜 다시 클릭 시 다음 창으로 넘어갈 수 있도록 변경 
+            if (i + 1 == originDialogue.Length) // 채팅의 끝까지 오면 엔드 텍스트를 활성화 시켜 다시 클릭 시 다음 창으로 넘어갈 수 있도록 변경 
             {
                 endTextCheck = true;
                 StartCoroutine(BlinkArrow());
             }
-
-            }
- 
-    
+        }        
     }
 
     IEnumerator BlinkArrow()
-    {
-       
-   
+    { 
         while(endTextCheck == true)
         {
             DownArrow.SetActive(true);
@@ -146,10 +126,6 @@ public class DialougeManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
           
         }
-
-
-      
-
     }
 }
 

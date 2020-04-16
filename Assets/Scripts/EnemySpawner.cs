@@ -14,11 +14,16 @@ public class EnemySpawner : MonoBehaviour
 
     public GameObject upgradePanel;
 
+    void Start()
+    {
+        dialougeManager.DialogueText();
+    }
+
     void Update()
     {
         timer -= Time.deltaTime;
 
-        if (timer <= 0 && !shopTime )
+        if (timer <= 0 && !shopTime)
         {
             Vector2 spawnPos = new Vector2(Random.Range(-2f, 2f), 6.5f);
             Instantiate(enemy, spawnPos, transform.rotation);

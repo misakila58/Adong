@@ -81,7 +81,6 @@ public class DialougeManager : MonoBehaviour
                     break;
 
                 case 7:
-                    originDialogue = "\"아이고 호랑이 어르신.. 저는 그저 농사를 짓는 일개 농부에 불과합니다. 저어쪽에 보이는 저 큰 집으로 한번 가보시지요\"  ";
                     textPanel.SetActive(false);
                     EnemySpawner.shopTime = false;
                     break;

@@ -17,4 +17,10 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+<<<<<<< HEAD
+=======
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66ABF166-57BC-4C09-B01A-A7573857BA1D}
+	EndGlobalSection
+>>>>>>> remotes/origin/TextPanel
 EndGlobal

@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        dialougeManager.DialogueText();
+
     }
 
     void Update()

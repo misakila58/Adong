@@ -28,6 +28,7 @@ public class DialougeManager : MonoBehaviour
     void Start()
     {
         endTextCheck = true;
+        DialogueText();
         //   dialougeImage = GetComponent<Image>();
     }    
 

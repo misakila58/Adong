@@ -20,6 +20,11 @@ public class UpgradeManager : MonoBehaviour
     private int saveTemp3;
 
     public Perks nullPerk;
+    public PlayerPerks playerPerks;
+
+    public GameObject swordPerkButton;
+    public GameObject trapPerkButton;
+    public GameObject laserPerkButton;
 
     public List<Perks> itemList = new List<Perks>();
 
@@ -94,21 +99,39 @@ public class UpgradeManager : MonoBehaviour
             case 2:
                 PlayerStats.Spd += 0.1f;
                 break;
-            //case 3:
-            //    PlayerStats.Spd += 0.1f;
-            //    itemList.Remove(itemList[3]);
-            //    itemList.Insert(3, nullPerk);
-            //    break;
-            //case 4:
-            //    PlayerStats.Spd += 0.15f;
-            //    itemList.Remove(itemList[4]);
-            //    itemList.Insert(4, nullPerk);
-            //    break;
-            //case 5:
-            //    PlayerPerks.semiAuto = true;
-            //    itemList.Remove(itemList[5]);
-            //    itemList.Insert(5, nullPerk);
-            //    break;
+            case 3:
+                for (int i = 0; i < playerPerks.slots.Length; i++)
+                {
+                    if (playerPerks.isFull[i] == false)
+                    {
+                        playerPerks.isFull[i] = true;
+                        Instantiate(swordPerkButton, playerPerks.slots[i].transform, false);
+                        break;
+                    }
+                }
+                break;
+            case 4:
+                for (int i = 0; i < playerPerks.slots.Length; i++)
+                {
+                    if (playerPerks.isFull[i] == false)
+                    {
+                        playerPerks.isFull[i] = true;
+                        Instantiate(trapPerkButton, playerPerks.slots[i].transform, false);
+                        break;
+                    }
+                }
+                break;
+            case 5:
+                for (int i = 0; i < playerPerks.slots.Length; i++)
+                {
+                    if (playerPerks.isFull[i] == false)
+                    {
+                        playerPerks.isFull[i] = true;
+                        Instantiate(laserPerkButton, playerPerks.slots[i].transform, false);
+                        break;
+                    }
+                }
+                break;
             //case 6:
             //    PlayerStats.Hp++;
             //    perk.price += 200;
@@ -159,57 +182,27 @@ public class UpgradeManager : MonoBehaviour
 
     public void TouchRange1()
     {
-        //if (PlayerStats.Money >= itemList[saveTemp1].price)
-        //{
-        //AudioManager.instance.Play("buy");
-        //PlayerStats.Money -= itemList[saveTemp1].price;
-        //PlayerStats.FinalMoney += itemList[saveTemp1].price;
-        //touchRange[0].GetComponent<Image>().color = new Color(0, 0, 0, 0.75f);
-        //Button b = touchRange[0].GetComponent<Button>();
-        //b.enabled = false;
-
         PlayerStats.UpgradeGage = 0;
         EnemySpawner.shopTime = false;
         gameObject.SetActive(false);
 
         ActivePerk(itemList[saveTemp1]);
-        //}
     }
     public void TouchRange2()
-    {
-        //if (PlayerStats.Money >= itemList[saveTemp2].price)
-        //{
-        //AudioManager.instance.Play("buy");
-        //PlayerStats.Money -= itemList[saveTemp2].price;
-        //PlayerStats.FinalMoney += itemList[saveTemp2].price;
-        //touchRange[1].GetComponent<Image>().color = new Color(0, 0, 0, 0.75f);
-        //Button b = touchRange[1].GetComponent<Button>();
-        //b.enabled = false;
-
+    { 
         PlayerStats.UpgradeGage = 0;
         EnemySpawner.shopTime = false;
         gameObject.SetActive(false);
 
         ActivePerk(itemList[saveTemp2]);
-        //}
     }
     public void TouchRange3()
     {
-        //if (PlayerStats.Money >= itemList[saveTemp3].price)
-        //{
-        //AudioManager.instance.Play("buy");
-        //PlayerStats.Money -= itemList[saveTemp3].price;
-        //PlayerStats.FinalMoney += itemList[saveTemp3].price;
-        //touchRange[2].GetComponent<Image>().color = new Color(0, 0, 0, 0.75f);
-        //Button b = touchRange[2].GetComponent<Button>();
-        //b.enabled = false;
-
         PlayerStats.UpgradeGage = 0;
         EnemySpawner.shopTime = false;
         gameObject.SetActive(false);
 
         ActivePerk(itemList[saveTemp3]);
-        //}
     }
 
     void PickShopList()

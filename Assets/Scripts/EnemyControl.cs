@@ -37,16 +37,20 @@ public class EnemyControl : MonoBehaviour
         if (col.transform.tag == "Bullet")
         {
             Destroy(col.gameObject);
+            TakeDamage(PlayerStats.Dmg);
+        }
+    }
 
-            hp -= PlayerStats.Dmg;
-            hpBar.gameObject.SetActive(true);
-            hpBar.fillAmount = hp / startHp;
+    public void TakeDamage(int damage)
+    {
+        hp -= damage;
+        hpBar.gameObject.SetActive(true);
+        hpBar.fillAmount = hp / startHp;
 
-            if (hp <= 0)
-            {
-                PlayerStats.UpgradeGage++;
-                Destroy(gameObject);
-            }
+        if (hp <= 0)
+        {
+            PlayerStats.UpgradeGage++;
+            Destroy(gameObject);
         }
     }
 }

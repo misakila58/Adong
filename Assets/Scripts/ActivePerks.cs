@@ -9,14 +9,69 @@ public class ActivePerks : MonoBehaviour
     public float swordRange;
     public int swordDmg;
 
+    private int trapRemainNum;
+    public int trapDmg;
+    public static bool TrapMode = false;
+
+    public int laserDmg;
+    private float laserDuration;
+    public float laserStartDuration;
+    private bool laserOn;
+
     public float swordCoolDown;
     private float swordCurCoolDown;
+    public float trapCoolDown;
+    private float trapCurCoolDown;
+    public float laserCoolDown;
+    private float laserCurCoolDown;
 
     public GameObject swordObject;
+    public GameObject trapObject;
+    public GameObject laserObject;
+
+    void Start()
+    {
+        trapRemainNum = 3;
+        laserOn = false;
+    }
 
     void Update()
     {
         swordCurCoolDown -= Time.deltaTime;
+        trapCurCoolDown -= Time.deltaTime;
+        laserCurCoolDown -= Time.deltaTime;
+
+        if (Input.GetMouseButtonDown(0) && TrapMode)
+        {
+            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono);
+            Vector3 adjustZ = new Vector3(worldPoint.x, worldPoint.y, trapObject.transform.position.z);
+
+            Instantiate(trapObject).transform.position = adjustZ;
+            trapRemainNum--;            
+        }
+
+        if (trapRemainNum <= 0)
+        {
+            TrapMode = false;
+            trapRemainNum = 3;
+        }
+
+        if (laserOn)
+        {
+            laserDuration -= Time.deltaTime;
+            
+            if (laserDuration <= 0)
+            {
+                laserOn = false;                
+            }
+
+            laserObject.SetActive(true);
+        }
+        else
+        {
+            laserObject.SetActive(false);
+            laserDuration = laserStartDuration;
+        }
     }
 
     public void SwordSwing()
@@ -41,11 +96,21 @@ public class ActivePerks : MonoBehaviour
 
     public void Trap()
     {
-        Debug.Log("trap");
+        if (trapCurCoolDown <= 0)
+        {
+            TrapMode = true;
+
+            trapCurCoolDown = trapCoolDown;
+        }
     }
 
     public void Laser()
     {
-        Debug.Log("laser");
+        if (laserCurCoolDown <= 0)
+        {
+            laserOn = true;
+
+            laserCurCoolDown = laserCoolDown;
+        }
     }
 }

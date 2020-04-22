@@ -12,6 +12,7 @@ public class EnemyControl : MonoBehaviour
     public Image hpBar;
 
     private EnemySpawner enemySpawner;
+    private ActivePerks activePerks;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class EnemyControl : MonoBehaviour
         hp = startHp;
 
         enemySpawner = GameObject.FindGameObjectWithTag("enemySpawner").GetComponent<EnemySpawner>();
+        activePerks = GameObject.FindGameObjectWithTag("Crossbow").GetComponent<ActivePerks>();
     }
 
     // Update is called once per frame
@@ -38,6 +40,17 @@ public class EnemyControl : MonoBehaviour
         {
             Destroy(col.gameObject);
             TakeDamage(PlayerStats.Dmg);
+        }
+
+        if (col.transform.tag == "Trap")
+        {
+            Destroy(col.gameObject);
+            TakeDamage(activePerks.trapDmg);
+        }
+
+        if (col.transform.tag == "Laser")
+        {
+            TakeDamage(activePerks.laserDmg);
         }
     }
 

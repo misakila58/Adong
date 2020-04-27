@@ -222,7 +222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65114100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.47, z: 0}
+  m_LocalPosition: {x: 0.039, y: 0.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1942276633}
@@ -913,7 +913,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710244514}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.37, z: 0}
+  m_LocalPosition: {x: 0.04, y: -0.07, z: 0}
   m_LocalScale: {x: 160, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 1942276633}
@@ -1881,7 +1881,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialougeManager: {fileID: 1992082977}
   spawnDelay: 1.5
-  enemy: {fileID: 6567063585827954771, guid: 5a2735a81ded0c84e9cbec66f585f1a7, type: 3}
+  enemy:
+  - {fileID: 6567063585827954771, guid: 5a2735a81ded0c84e9cbec66f585f1a7, type: 3}
+  - {fileID: 1611733810275947122, guid: e39a208ba321fcd4fb2de74154b5e808, type: 3}
   upgradePanel: {fileID: 1283537472}
 --- !u!4 &1380443045
 Transform:
@@ -2589,11 +2591,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1942276633}
   - component: {fileID: 1942276632}
-  - component: {fileID: 1942276630}
   - component: {fileID: 1942276631}
   - component: {fileID: 1942276634}
   - component: {fileID: 1942276636}
   - component: {fileID: 1942276635}
+  - component: {fileID: 1942276630}
+  - component: {fileID: 1942276637}
   m_Layer: 0
   m_Name: Crossbow
   m_TagString: Crossbow
@@ -2674,13 +2677,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -1201772774456808696, guid: 63679c2c649a9634a9c372a5c12e8f01,
+  m_Sprite: {fileID: -2966200626249415253, guid: 31df52ed2b2ce9c419903f4110e0bc4e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.76, y: 4.45}
+  m_Size: {x: 2.64, y: 2.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2694,8 +2697,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942276629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.02, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: -3.45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 65114101}
   - {fileID: 710244516}
@@ -2765,6 +2768,32 @@ MonoBehaviour:
   trapObject: {fileID: 2745922327028154750, guid: 21d182535badb1c488e01f9b5892ef5a,
     type: 3}
   laserObject: {fileID: 710244514}
+--- !u!61 &1942276637
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942276629}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04083711, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.64, y: 2.25}
+    newSize: {x: 2.64, y: 2.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.939072, y: 1.6747159}
+  m_EdgeRadius: 0
 --- !u!1 &1992082973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2802,7 +2831,7 @@ MonoBehaviour:
   startSpd: 3
   startFireSpd: 0.5
   startMoney: 0
-  startUpgradeGage: 9
+  startUpgradeGage: 0
 --- !u!4 &1992082975
 Transform:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     public static bool shopTime = false;
 
-    public GameObject enemy;
+    public GameObject[] enemy;
 
     public GameObject upgradePanel;
 
@@ -26,7 +26,13 @@ public class EnemySpawner : MonoBehaviour
         if (timer <= 0 && !shopTime)
         {
             Vector2 spawnPos = new Vector2(Random.Range(-2f, 2f), 6.5f);
-            Instantiate(enemy, spawnPos, transform.rotation);
+            int enemyNum = Random.Range(1, 100);
+
+            if (0 < enemyNum && enemyNum <= 60)
+                Instantiate(enemy[0], spawnPos, transform.rotation);
+            else if (60 < enemyNum && enemyNum <= 100)
+                Instantiate(enemy[1], spawnPos, transform.rotation);
+
             timer = spawnDelay;
         }
 

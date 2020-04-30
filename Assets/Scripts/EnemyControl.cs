@@ -74,7 +74,7 @@ public class EnemyControl : MonoBehaviour
 
         if (hp <= 0)
         {
-            PlayerStats.UpgradeGage++;
+            enemySpawner.curKills++;
             Destroy(gameObject);
         }
     }

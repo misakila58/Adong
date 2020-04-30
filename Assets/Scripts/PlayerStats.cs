@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    public static int Level;
+    public int startLevel;
+
     public static int Dmg;
     public int startDmg;
 
@@ -19,16 +22,13 @@ public class PlayerStats : MonoBehaviour
     public static int Money;
     public int startMoney;
 
-    public static int UpgradeGage;
-    public int startUpgradeGage;
-
     void Start()
     {
+        Level = startLevel;
         Dmg = startDmg;
         Hp = startHp;
         Spd = startSpd;
         FireSpd = startFireSpd;
         Money = startMoney;
-        UpgradeGage = startUpgradeGage;
     }
 }

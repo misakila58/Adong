@@ -1880,11 +1880,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialougeManager: {fileID: 1992082977}
-  spawnDelay: 1.5
   enemy:
   - {fileID: 6567063585827954771, guid: 5a2735a81ded0c84e9cbec66f585f1a7, type: 3}
+  - {fileID: 6567063585827954771, guid: 57643d35c33bb1547958c5dfa6a91b5a, type: 3}
   - {fileID: 1611733810275947122, guid: e39a208ba321fcd4fb2de74154b5e808, type: 3}
   upgradePanel: {fileID: 1283537472}
+  curKills: 0
+  remainKills: 0
+  startRemainKills: 5
+  startSpawnDelay: 1
+  remainKillsAddAmount: 5
+  spawnDelayReduceAmount: 0.1
 --- !u!4 &1380443045
 Transform:
   m_ObjectHideFlags: 0
@@ -2826,12 +2832,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6078b8253eccd429c2f3cde679ac08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startLevel: 0
   startDmg: 10
   startHp: 3
   startSpd: 3
   startFireSpd: 0.5
   startMoney: 0
-  startUpgradeGage: 0
 --- !u!4 &1992082975
 Transform:
   m_ObjectHideFlags: 0
@@ -2859,6 +2865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeGage: {fileID: 1669885573}
+  enemySpawner: {fileID: 1380443044}
 --- !u!114 &1992082977
 MonoBehaviour:
   m_ObjectHideFlags: 0

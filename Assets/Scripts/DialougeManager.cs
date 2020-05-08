@@ -37,7 +37,7 @@ public class DialougeManager : MonoBehaviour
         textPanel.SetActive(true);
         EnemySpawner.shopTime = true; // 텍스트 노출 시 멈추는 것을 하기 위해 이미 구현되어 있던 shopTime 을 가져다가 씀 
 
-        if (endTextCheck == true)
+        if (endTextCheck == true )
         {
             textNum++;
             switch (textNum)

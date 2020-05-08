@@ -182,15 +182,23 @@ public class UpgradeManager : MonoBehaviour
 
     public void TouchRange1()
     {
-        PlayerStats.UpgradeGage = 0;
+        enemySpawner.curKills = 0;
+        if (EnemySpawner.spawnType < 4)
+            EnemySpawner.spawnType++;
+        EnemySpawner.spawnDelay -= enemySpawner.spawnDelayReduceAmount;
+        enemySpawner.remainKills += enemySpawner.remainKillsAddAmount;
         EnemySpawner.shopTime = false;
         gameObject.SetActive(false);
 
         ActivePerk(itemList[saveTemp1]);
     }
     public void TouchRange2()
-    { 
-        PlayerStats.UpgradeGage = 0;
+    {
+        enemySpawner.curKills = 0;
+        if (EnemySpawner.spawnType < 4)
+            EnemySpawner.spawnType++;
+        EnemySpawner.spawnDelay -= enemySpawner.spawnDelayReduceAmount;
+        enemySpawner.remainKills += enemySpawner.remainKillsAddAmount;
         EnemySpawner.shopTime = false;
         gameObject.SetActive(false);
 
@@ -198,7 +206,11 @@ public class UpgradeManager : MonoBehaviour
     }
     public void TouchRange3()
     {
-        PlayerStats.UpgradeGage = 0;
+        enemySpawner.curKills = 0;
+        if (EnemySpawner.spawnType < 4)
+            EnemySpawner.spawnType++;
+        EnemySpawner.spawnDelay -= enemySpawner.spawnDelayReduceAmount;
+        enemySpawner.remainKills += enemySpawner.remainKillsAddAmount;
         EnemySpawner.shopTime = false;
         gameObject.SetActive(false);
 

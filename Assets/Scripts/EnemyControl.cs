@@ -5,9 +5,17 @@ using UnityEngine.UI;
 
 public class EnemyControl : MonoBehaviour
 {
+    public int type;// 0:normal  1:tank  2:range
     public float spd;
     public float hp;
     public float startHp;
+
+    public float firstShotDelay;
+    public float reloadTimer;
+    private float timer;
+
+    public GameObject bullet;
+    public Transform shootPosition;
 
     public Image hpBar;
 
@@ -18,6 +26,7 @@ public class EnemyControl : MonoBehaviour
     void Start()
     {
         hp = startHp;
+        timer = firstShotDelay;
 
         enemySpawner = GameObject.FindGameObjectWithTag("enemySpawner").GetComponent<EnemySpawner>();
         activePerks = GameObject.FindGameObjectWithTag("Crossbow").GetComponent<ActivePerks>();
@@ -27,6 +36,9 @@ public class EnemyControl : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.down * spd * Time.deltaTime);
+
+        if (type == 2)
+            Shoot();
 
         if (EnemySpawner.shopTime)
         {
@@ -62,8 +74,18 @@ public class EnemyControl : MonoBehaviour
 
         if (hp <= 0)
         {
-            PlayerStats.UpgradeGage++;
+            enemySpawner.curKills++;
             Destroy(gameObject);
+        }
+    }
+
+    void Shoot()
+    {
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            Instantiate(bullet, shootPosition.transform.position, transform.rotation);
+            timer = reloadTimer;
         }
     }
 }

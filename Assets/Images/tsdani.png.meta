@@ -1,0 +1,464 @@
+fileFormatVersion: 2
+guid: f446a4a3ec6f99345ad22f3bd9464873
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -630117487866948151
+    second: tsdani_0
+  - first:
+      213: -5499558982366395359
+    second: tsdani_1
+  - first:
+      213: 20045183156464335
+    second: tsdani_2
+  - first:
+      213: 4698179025169069116
+    second: tsdani_3
+  - first:
+      213: 837861409874859719
+    second: tsdani_4
+  - first:
+      213: -1604921411955008219
+    second: tsdani_5
+  - first:
+      213: 8331215149122248559
+    second: tsdani_6
+  - first:
+      213: 81214595856271304
+    second: tsdani_7
+  - first:
+      213: 8703631313948115138
+    second: tsdani_8
+  - first:
+      213: 5746513117636083507
+    second: tsdani_9
+  - first:
+      213: 1357284970374294422
+    second: tsdani_10
+  - first:
+      213: 2159040231804598726
+    second: tsdani_11
+  - first:
+      213: 213567802937993634
+    second: tsdani_12
+  - first:
+      213: -1688228985022530236
+    second: tsdani_13
+  - first:
+      213: 2047144439017489471
+    second: tsdani_14
+  - first:
+      213: -4264320788188128864
+    second: tsdani_15
+  - first:
+      213: 4533861731200673545
+    second: tsdani_16
+  - first:
+      213: -7865147701098043006
+    second: tsdani_17
+  - first:
+      213: 3070467661442426252
+    second: tsdani_18
+  - first:
+      213: 3921742028283486281
+    second: tsdani_19
+  - first:
+      213: -5907940309536881982
+    second: tsdani_20
+  - first:
+      213: -2174317893029957704
+    second: tsdani_21
+  - first:
+      213: -4021872899400267963
+    second: tsdani_22
+  - first:
+      213: -3654637634090905782
+    second: tsdani_23
+  - first:
+      213: 3528029988028342358
+    second: tsdani_24
+  - first:
+      213: 8738029777186487287
+    second: tsdani_25
+  - first:
+      213: -8458875597308799176
+    second: tsdani_26
+  - first:
+      213: -389470872096969298
+    second: tsdani_27
+  - first:
+      213: 4080097669512127349
+    second: tsdani_28
+  - first:
+      213: -2481536646117204379
+    second: tsdani_29
+  - first:
+      213: 7845302509404320330
+    second: tsdani_30
+  - first:
+      213: -2894399576366830136
+    second: tsdani_31
+  - first:
+      213: 2997695203026458376
+    second: tsdani_32
+  - first:
+      213: 2774922088762946669
+    second: tsdani_33
+  - first:
+      213: -8120377646360976759
+    second: tsdani_34
+  - first:
+      213: -4017454392364085790
+    second: tsdani_35
+  - first:
+      213: -8687089177841317040
+    second: tsdani_36
+  - first:
+      213: -7189277866766085484
+    second: tsdani_37
+  - first:
+      213: -2311911257391874052
+    second: tsdani_38
+  - first:
+      213: -2946653062391934847
+    second: tsdani_39
+  - first:
+      213: -6544131886711496369
+    second: tsdani_40
+  - first:
+      213: -5118040814145595319
+    second: tsdani_41
+  - first:
+      213: 3529216113407199373
+    second: tsdani_42
+  - first:
+      213: 7609971963231343011
+    second: tsdani_43
+  - first:
+      213: -6719082186469344796
+    second: tsdani_44
+  - first:
+      213: -3504654827584326989
+    second: tsdani_45
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tsdani_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 514.4
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c5dde8bb7f5147f0800000000000000
+      internalID: -630117487866948151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsdani_1
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 0
+        width: 514.4
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1240eb25e34ada3b0800000000000000
+      internalID: -5499558982366395359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsdani_2
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 0
+        width: 514.4
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcaaf75ecf6374000800000000000000
+      internalID: 20045183156464335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsdani_3
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 0
+        width: 514.4
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c34b46e6ee8433140800000000000000
+      internalID: 4698179025169069116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsdani_4
+      rect:
+        serializedVersion: 2
+        x: 2056
+        y: 0
+        width: 514.4
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c6599a538ea0ab00800000000000000
+      internalID: 837861409874859719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsdani_5
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 0
+        width: 514.4
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52dd004aa7c2ab9e0800000000000000
+      internalID: -1604921411955008219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsdani_6
+      rect:
+        serializedVersion: 2
+        x: 3084
+        y: 0
+        width: 514.4
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6fd8c6990c6e9370800000000000000
+      internalID: 8331215149122248559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsdani_7
+      rect:
+        serializedVersion: 2
+        x: 3598
+        y: 0
+        width: 514.4
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c70790ae38802100800000000000000
+      internalID: 81214595856271304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsdani_8
+      rect:
+        serializedVersion: 2
+        x: 4112
+        y: 0
+        width: 514.4
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c008d3f09289c870800000000000000
+      internalID: 8703631313948115138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsdani_9
+      rect:
+        serializedVersion: 2
+        x: 4626
+        y: 0
+        width: 514.4
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33f32d1fb37bfbf40800000000000000
+      internalID: 5746513117636083507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

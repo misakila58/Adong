@@ -1758,8 +1758,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 707617908}
-  - component: {fileID: 707617907}
   - component: {fileID: 707617909}
+  - component: {fileID: 707617907}
   m_Layer: 0
   m_Name: SettingManager
   m_TagString: Untagged

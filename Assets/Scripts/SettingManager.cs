@@ -23,8 +23,10 @@ public class SettingManager : MonoBehaviour
     void Start()
     {
        
-        DontDestroyOnLoad(settingManager); //소리 관련을 이 오브젝트에서 다 처리해줄 것이기 떄문에 삭제 되면 안됨
+        DontDestroyOnLoad(settingManager);//소리 관련을 이 오브젝트에서 다 처리해줄 것이기 떄문에 삭제 되면 안됨
+        tutorial.LoadTutorialData();
         FirstGame();
+       
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class SettingManager : MonoBehaviour
     
     void FirstGame() // 튜토리얼 패널 실행 함수 
     {
-        if(tutorial.tutorialData.tutorialCheck == true)
+        if(tutorial.tutorialData.tutorialCheck == false)
         {
             tutorialPanel.SetActive(true);
         }
@@ -48,7 +50,7 @@ public class SettingManager : MonoBehaviour
 
    public void ExitTutorial()
     {
-        tutorial.tutorialData.tutorialCheck = false;
+        tutorial.tutorialData.tutorialCheck = true;
         tutorialPanel.SetActive(false);
         tutorial.SaveTutorialData();
     }

@@ -22,6 +22,9 @@ public class EnemyControl : MonoBehaviour
     private EnemySpawner enemySpawner;
     private ActivePerks activePerks;
 
+    public Animator anim;
+    public Collider2D col;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,7 +78,14 @@ public class EnemyControl : MonoBehaviour
         if (hp <= 0)
         {
             enemySpawner.curKills++;
-            Destroy(gameObject);
+            if (type != 0)
+            {
+                col.enabled = false;
+                anim.SetTrigger("Die");
+            }                
+            else
+                Destroy(gameObject);
+            
         }
     }
 
@@ -87,5 +97,10 @@ public class EnemyControl : MonoBehaviour
             Instantiate(bullet, shootPosition.transform.position, transform.rotation);
             timer = reloadTimer;
         }
+    }
+
+    public void SelfDestroy()
+    {
+        Destroy(gameObject);
     }
 }

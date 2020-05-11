@@ -97,7 +97,7 @@ public class UpgradeManager : MonoBehaviour
                 PlayerStats.FireSpd -= 0.1f;
                 break;
             case 2:
-                PlayerStats.Spd += 0.1f;
+                PlayerStats.Spd += 0.2f;
                 break;
             case 3:
                 for (int i = 0; i < playerPerks.slots.Length; i++)

@@ -12,6 +12,7 @@ public class ActivePerks : MonoBehaviour
     private int trapRemainNum;
     public int trapDmg;
     public static bool TrapMode = false;
+    public GameObject touchRange;
 
     public int laserDmg;
     private float laserDuration;
@@ -41,13 +42,19 @@ public class ActivePerks : MonoBehaviour
         trapCurCoolDown -= Time.deltaTime;
         laserCurCoolDown -= Time.deltaTime;
 
-        if (Input.GetMouseButtonDown(0) && TrapMode)
+        if (TrapMode)
         {
-            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono);
-            Vector3 adjustZ = new Vector3(worldPoint.x, worldPoint.y, trapObject.transform.position.z);
+            touchRange.SetActive(true);
+        }
+        else
+        {
+            touchRange.SetActive(false);
+        }
 
-            Instantiate(trapObject).transform.position = adjustZ;
-            trapRemainNum--;            
+        if (EnemySpawner.shopTime)
+        {
+            TrapMode = false;
+            trapRemainNum = 3;
         }
 
         if (trapRemainNum <= 0)
@@ -101,6 +108,18 @@ public class ActivePerks : MonoBehaviour
             TrapMode = true;
 
             trapCurCoolDown = trapCoolDown;
+        }
+    }
+
+    public void TrapPlant()
+    {
+        if (TrapMode)
+        {
+            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono);
+            Vector3 adjustZ = new Vector3(worldPoint.x, worldPoint.y, trapObject.transform.position.z);
+
+            Instantiate(trapObject).transform.position = adjustZ;
+            trapRemainNum--;
         }
     }
 

@@ -21,8 +21,8 @@ public class PlayerStats : MonoBehaviour
     public static float FireSpd;
     public float startFireSpd;
 
-    public static int Money;
-    public int startMoney;
+    public static float CriChan;
+    public float startCriChan;
 
     void Start()
     {
@@ -32,6 +32,6 @@ public class PlayerStats : MonoBehaviour
         Hp = startHp;
         Spd = startSpd;
         FireSpd = startFireSpd;
-        Money = startMoney;
+        CriChan = startCriChan;
     }
 }

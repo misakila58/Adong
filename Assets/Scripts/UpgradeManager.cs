@@ -92,14 +92,25 @@ public class UpgradeManager : MonoBehaviour
         {
             case 0:
                 PlayerStats.Dmg += 5;
+                itemList.Remove(itemList[0]);
+                itemList.Insert(0, nullPerk);
                 break;
             case 1:
                 PlayerStats.FireSpd -= 0.1f;
+                itemList.Remove(itemList[1]);
+                itemList.Insert(1, nullPerk);
                 break;
             case 2:
                 PlayerStats.Spd += 0.2f;
+                itemList.Remove(itemList[2]);
+                itemList.Insert(2, nullPerk);
                 break;
             case 3:
+                PlayerStats.CriChan += 0.05f;
+                itemList.Remove(itemList[3]);
+                itemList.Insert(3, nullPerk);
+                break;
+            case 4:
                 for (int i = 0; i < playerPerks.slots.Length; i++)
                 {
                     if (playerPerks.isFull[i] == false)
@@ -109,8 +120,10 @@ public class UpgradeManager : MonoBehaviour
                         break;
                     }
                 }
+                itemList.Remove(itemList[4]);
+                itemList.Insert(4, nullPerk);
                 break;
-            case 4:
+            case 5:
                 for (int i = 0; i < playerPerks.slots.Length; i++)
                 {
                     if (playerPerks.isFull[i] == false)
@@ -120,8 +133,10 @@ public class UpgradeManager : MonoBehaviour
                         break;
                     }
                 }
+                itemList.Remove(itemList[5]);
+                itemList.Insert(5, nullPerk);
                 break;
-            case 5:
+            case 6:
                 for (int i = 0; i < playerPerks.slots.Length; i++)
                 {
                     if (playerPerks.isFull[i] == false)
@@ -131,16 +146,12 @@ public class UpgradeManager : MonoBehaviour
                         break;
                     }
                 }
+                itemList.Remove(itemList[6]);
+                itemList.Insert(6, nullPerk);
                 break;
-            //case 6:
-            //    PlayerStats.Hp++;
-            //    perk.price += 200;
-            //    break;
-            //case 7:
-            //    PlayerPerks.penetration = true;
-            //    itemList.Remove(itemList[7]);
-            //    itemList.Insert(7, nullPerk);
-            //    break;
+            case 7:
+                PlayerStats.Hp = PlayerStats.FullHp;
+                break;
             //case 8:
             //    PlayerPerks.stunning = true;
             //    itemList.Remove(itemList[8]);
@@ -182,7 +193,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void TouchRange1()
     {
-        enemySpawner.curKills = 0;
+        enemySpawner.curKills = 0;        
         if (EnemySpawner.spawnType < 4)
             EnemySpawner.spawnType++;
         EnemySpawner.spawnDelay -= enemySpawner.spawnDelayReduceAmount;
@@ -191,6 +202,7 @@ public class UpgradeManager : MonoBehaviour
         gameObject.SetActive(false);
 
         ActivePerk(itemList[saveTemp1]);
+        enemySpawner.curStage++;
     }
     public void TouchRange2()
     {
@@ -203,6 +215,7 @@ public class UpgradeManager : MonoBehaviour
         gameObject.SetActive(false);
 
         ActivePerk(itemList[saveTemp2]);
+        enemySpawner.curStage++;
     }
     public void TouchRange3()
     {
@@ -215,55 +228,122 @@ public class UpgradeManager : MonoBehaviour
         gameObject.SetActive(false);
 
         ActivePerk(itemList[saveTemp3]);
+        enemySpawner.curStage++;
     }
 
     void PickShopList()
     {
-        var randomIndex = Random.Range(0, itemList.Count);
-        while (itemList[randomIndex] == nullPerk)
+        int randomIndex = 0;
+
+        if (enemySpawner.curStage == 1 || enemySpawner.curStage == 2)
         {
-            randomIndex = Random.Range(0, itemList.Count);
+            randomIndex = Random.Range(0, 4);
+            while (itemList[randomIndex] == nullPerk)
+            {
+                randomIndex = Random.Range(0, 4);
+            }
+            saveItem = itemList[randomIndex];
         }
-        saveItem = itemList[randomIndex];
+        else if (enemySpawner.curStage >= 3 && enemySpawner.curStage <= 5)
+        {
+            randomIndex = Random.Range(4, 8);
+            while (itemList[randomIndex] == nullPerk)
+            {
+                randomIndex = Random.Range(4, 8);
+            }
+            saveItem = itemList[randomIndex];
+        }
+        else if (enemySpawner.curStage >= 6)
+        {
+            randomIndex = Random.Range(8, 8);
+            while (itemList[randomIndex] == nullPerk)
+            {
+                randomIndex = Random.Range(8, 8);
+            }
+            saveItem = itemList[randomIndex];
+        }
 
         nameText[0].text = saveItem.name;
         descriptionText[0].text = saveItem.description;
         iconImage[0].sprite = saveItem.icon;
-        //priceText[0].text = saveItem.price.ToString();
 
         saveTemp1 = randomIndex;
         PickShopList2();
     }
     void PickShopList2()
     {
-        var randomIndex = Random.Range(0, itemList.Count);
-        while (randomIndex == saveTemp1 || itemList[randomIndex] == nullPerk)
+        int randomIndex = 0;
+
+        if (enemySpawner.curStage == 1 || enemySpawner.curStage == 2)
         {
-            randomIndex = Random.Range(0, itemList.Count);
+            randomIndex = Random.Range(0, 4);
+            while (randomIndex == saveTemp1 || itemList[randomIndex] == nullPerk)
+            {
+                randomIndex = Random.Range(0, 4);
+            }
+            saveItem = itemList[randomIndex];
         }
-        saveItem = itemList[randomIndex];
+        else if (enemySpawner.curStage >= 3 && enemySpawner.curStage <= 5)
+        {
+            randomIndex = Random.Range(4, 8);
+            while (randomIndex == saveTemp1 || itemList[randomIndex] == nullPerk)
+            {
+                randomIndex = Random.Range(4, 8);
+            }
+            saveItem = itemList[randomIndex];
+        }
+        else if (enemySpawner.curStage >= 6)
+        {
+            randomIndex = Random.Range(8, 8);
+            while (randomIndex == saveTemp1 || itemList[randomIndex] == nullPerk)
+            {
+                randomIndex = Random.Range(0, itemList.Count);
+            }
+            saveItem = itemList[randomIndex];
+        }
 
         nameText[1].text = saveItem.name;
         descriptionText[1].text = saveItem.description;
         iconImage[1].sprite = saveItem.icon;
-        //priceText[1].text = saveItem.price.ToString();
 
         saveTemp2 = randomIndex;
         PickShopList3();
     }
     void PickShopList3()
     {
-        var randomIndex = Random.Range(0, itemList.Count);
-        while (randomIndex == saveTemp1 || randomIndex == saveTemp2 || itemList[randomIndex] == nullPerk)
+        int randomIndex = 0;
+
+        if (enemySpawner.curStage == 1 || enemySpawner.curStage == 2)
         {
-            randomIndex = Random.Range(0, itemList.Count);
+            randomIndex = Random.Range(0, 4);
+            while (randomIndex == saveTemp1 || randomIndex == saveTemp2 || itemList[randomIndex] == nullPerk)
+            {
+                randomIndex = Random.Range(0, 4);
+            }
+            saveItem = itemList[randomIndex];
         }
-        saveItem = itemList[randomIndex];
+        else if (enemySpawner.curStage >= 3 && enemySpawner.curStage <= 5)
+        {
+            randomIndex = Random.Range(4, 8);
+            while (randomIndex == saveTemp1 || randomIndex == saveTemp2 || itemList[randomIndex] == nullPerk)
+            {
+                randomIndex = Random.Range(4, 8);
+            }
+            saveItem = itemList[randomIndex];
+        }
+        else if (enemySpawner.curStage >= 6)
+        {
+            randomIndex = Random.Range(8, 8);
+            while (randomIndex == saveTemp1 || randomIndex == saveTemp2 || itemList[randomIndex] == nullPerk)
+            {
+                randomIndex = Random.Range(8, 8);
+            }
+            saveItem = itemList[randomIndex];
+        }
 
         nameText[2].text = saveItem.name;
         descriptionText[2].text = saveItem.description;
         iconImage[2].sprite = saveItem.icon;
-        //priceText[2].text = saveItem.price.ToString();
 
         saveTemp3 = randomIndex;
     }

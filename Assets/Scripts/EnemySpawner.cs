@@ -23,8 +23,11 @@ public class EnemySpawner : MonoBehaviour
     public int remainKillsAddAmount;
     public float spawnDelayReduceAmount;
 
+    public int curStage;
+
     void Start()
     {
+        curStage = 1;
         curKills = 0;
         remainKills = startRemainKills;
         spawnType = 1;

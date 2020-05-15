@@ -2011,13 +2011,18 @@ MonoBehaviour:
     type: 3}
   laserPerkButton: {fileID: 4260326925708312044, guid: ea2cb14fbd5f57245a4dce7b0ef61c84,
     type: 3}
-  itemList:
+  itemList1:
   - {fileID: 11400000, guid: be3d52f308f90f5488e5e48a5da84000, type: 2}
   - {fileID: 11400000, guid: f206c677e076ec74aaf163c9719a8531, type: 2}
   - {fileID: 11400000, guid: ea353c932318faa4789d6dd5adb65873, type: 2}
+  - {fileID: 11400000, guid: 11beed07ede7b0a4b86c6a640221dd7e, type: 2}
+  itemList2:
   - {fileID: 11400000, guid: 37d9c3bde933f5040a811e9278b85496, type: 2}
   - {fileID: 11400000, guid: 41ff7d41d8d6bbf4eb21eec1bc1ed177, type: 2}
   - {fileID: 11400000, guid: 19bc3ead035d615458edb386dc15d3fb, type: 2}
+  - {fileID: 11400000, guid: 11beed07ede7b0a4b86c6a640221dd7e, type: 2}
+  itemList3:
+  - {fileID: 11400000, guid: 11beed07ede7b0a4b86c6a640221dd7e, type: 2}
 --- !u!1 &1305802029
 GameObject:
   m_ObjectHideFlags: 0
@@ -2279,6 +2284,7 @@ MonoBehaviour:
   startSpawnDelay: 1
   remainKillsAddAmount: 5
   spawnDelayReduceAmount: 0.1
+  curStage: 0
 --- !u!4 &1380443045
 Transform:
   m_ObjectHideFlags: 0

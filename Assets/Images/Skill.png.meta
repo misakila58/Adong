@@ -20,6 +20,15 @@ TextureImporter:
   - first:
       213: 8821516196380029320
     second: Skill_5
+  - first:
+      213: 604967156496745523
+    second: Skill_0
+  - first:
+      213: -8020133762957099049
+    second: Skill_1
+  - first:
+      213: -7816848201956723677
+    second: Skill_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -131,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f3bfb6a79feea2e0800000000000000
-      internalID: -2112487740573502474
+      spriteID: 33444cf6c66456800800000000000000
+      internalID: 604967156496745523
       vertices: []
       indices: 
       edges: []
@@ -152,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b09c1dc6ccdce99a0800000000000000
-      internalID: -6224311357096736501
+      spriteID: 7df33d7c5d2c2b090800000000000000
+      internalID: -8020133762957099049
       vertices: []
       indices: 
       edges: []
@@ -173,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fff0a0f3f8c179b90800000000000000
-      internalID: -7235282874783887361
+      spriteID: 324f73bc9f9f48390800000000000000
+      internalID: -7816848201956723677
       vertices: []
       indices: 
       edges: []

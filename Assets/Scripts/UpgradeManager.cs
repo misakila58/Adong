@@ -106,7 +106,7 @@ public class UpgradeManager : MonoBehaviour
                 itemList.Insert(2, nullPerk);
                 break;
             case 3:
-                PlayerStats.CriChan += 0.05f;
+                PlayerStats.CriChan += 5f;
                 itemList.Remove(itemList[3]);
                 itemList.Insert(3, nullPerk);
                 break;

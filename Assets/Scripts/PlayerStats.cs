@@ -23,6 +23,8 @@ public class PlayerStats : MonoBehaviour
     public static float CriChan;
     public float startCriChan;
 
+    public static float Score;
+
     void Start()
     {
         Level = startLevel;
@@ -32,5 +34,6 @@ public class PlayerStats : MonoBehaviour
         Spd = startSpd;
         FireSpd = startFireSpd;
         CriChan = startCriChan;
+        Score = 0;
     }
 }

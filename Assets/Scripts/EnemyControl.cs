@@ -14,6 +14,8 @@ public class EnemyControl : MonoBehaviour
     public float reloadTimer;
     private float timer;
 
+    public float score;
+
     public GameObject bullet;
     public Transform shootPosition;
 
@@ -71,21 +73,26 @@ public class EnemyControl : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        hp -= damage;
+        float c = Random.Range(0f, 100f);
+
+        if (c <= PlayerStats.CriChan)
+        {
+            hp -= damage * 2;
+        }
+        else
+        {
+            hp -= damage;
+        }
+
         hpBar.gameObject.SetActive(true);
         hpBar.fillAmount = hp / startHp;
 
         if (hp <= 0)
         {
-            enemySpawner.curKills++;
-            if (type != 0)
-            {
-                col.enabled = false;
-                anim.SetTrigger("Die");
-            }                
-            else
-                Destroy(gameObject);
-            
+            enemySpawner.curKills++;       
+            PlayerStats.Score += score;
+            col.enabled = false;
+            anim.SetTrigger("Die");
         }
     }
 

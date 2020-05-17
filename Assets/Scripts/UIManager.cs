@@ -9,9 +9,12 @@ public class UIManager : MonoBehaviour
     public Image upgradeGage;
     public EnemySpawner enemySpawner;
 
+    public Text scoreText;
+
     void Update()
     {
         hpGage.fillAmount = PlayerStats.Hp / PlayerStats.FullHp;
         upgradeGage.fillAmount = enemySpawner.curKills / enemySpawner.remainKills;
+        scoreText.text = PlayerStats.Score.ToString();
     }
 }

@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 3183586078982108606}
   m_Layer: 8
   m_Name: Enemy_Tank
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  spd: 0.3
+  startSpd: 0.4
   hp: 0
   startHp: 80
   firstShotDelay: 0

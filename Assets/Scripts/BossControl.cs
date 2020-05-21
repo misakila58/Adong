@@ -55,7 +55,7 @@ public class BossControl : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         hp -= damage;
         hpBar.gameObject.SetActive(true);

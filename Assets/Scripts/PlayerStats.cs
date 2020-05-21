@@ -7,8 +7,8 @@ public class PlayerStats : MonoBehaviour
     public static int Level;
     public int startLevel;
 
-    public static int Dmg;
-    public int startDmg;
+    public static float Dmg;
+    public float startDmg;
 
     public static float FullHp;
     public static float Hp;
@@ -23,6 +23,9 @@ public class PlayerStats : MonoBehaviour
     public static float CriChan;
     public float startCriChan;
 
+    public static float CriDmg;
+    public float startCriDmg;
+
     public static float Score;
 
     void Start()
@@ -34,6 +37,7 @@ public class PlayerStats : MonoBehaviour
         Spd = startSpd;
         FireSpd = startFireSpd;
         CriChan = startCriChan;
+        CriDmg = startCriDmg;
         Score = 0;
     }
 }

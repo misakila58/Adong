@@ -30,6 +30,12 @@ public class ActivePerks : MonoBehaviour
     public GameObject trapObject;
     public GameObject laserObject;
 
+    public static bool Vayne = false;
+    public static int shootCount = 0;
+    public static bool Slow = false;
+    public static bool Pene = false;
+    public static bool MovingShot = true;
+
     void Start()
     {
         trapRemainNum = 3;

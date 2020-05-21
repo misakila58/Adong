@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     public static int spawnType;
 
     public int startRemainKills;
-    public int startSpawnDelay;
+    public float startSpawnDelay;
     public int remainKillsAddAmount;
     public float spawnDelayReduceAmount;
 

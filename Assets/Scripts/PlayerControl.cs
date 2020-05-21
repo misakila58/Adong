@@ -8,6 +8,8 @@ public class PlayerControl : MonoBehaviour
 
     private Vector2 inputVector;
 
+    public bool isMove = false;
+
     void Update()
     {
         if (Input.touchCount > 0)
@@ -18,17 +20,20 @@ public class PlayerControl : MonoBehaviour
                 {
                     //transform.Translate(Vector2.left * PlayerStats.Spd * Time.deltaTime);
                     inputVector = new Vector2(-1 * PlayerStats.Spd, rb.velocity.y);
+                    isMove = true;
                 }
                 else if (touch.position.x > Screen.width / 2)
                 {
                     //transform.Translate(Vector2.right * PlayerStats.Spd * Time.deltaTime);
                     inputVector = new Vector2(1 * PlayerStats.Spd, rb.velocity.y);
+                    isMove = true;
                 }
             }
         }
         else
         {
             inputVector = new Vector2(0, rb.velocity.y);
+            isMove = false;
         }
         
         if (Input.GetKey(KeyCode.A))
@@ -36,21 +41,25 @@ public class PlayerControl : MonoBehaviour
             //rb.AddForce(new Vector2(-1 * PlayerStats.Spd * Time.deltaTime, 0));
             //transform.Translate(Vector2.left * PlayerStats.Spd * Time.deltaTime);
             inputVector = new Vector2(-1 * PlayerStats.Spd, rb.velocity.y);
+            isMove = true;
         }
         else if (Input.GetKey(KeyCode.D))
         {
             //rb.AddForce(new Vector2(1 * PlayerStats.Spd * Time.deltaTime, 0));
             //transform.Translate(Vector2.right * PlayerStats.Spd * Time.deltaTime);
             inputVector = new Vector2(1 * PlayerStats.Spd, rb.velocity.y);
+            isMove = true;
         }
 
         if (Input.GetKeyUp(KeyCode.A))
         {
             inputVector = new Vector2(0, rb.velocity.y);
+            isMove = false;
         }
         else if (Input.GetKeyUp(KeyCode.D))
         {
             inputVector = new Vector2(0, rb.velocity.y);
+            isMove = false;
         }
     }
 

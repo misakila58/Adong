@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class EnemyControl : MonoBehaviour
 {
     public int type;// 0:normal  1:tank  2:range
-    public float spd;
+    private float spd;
+    public float startSpd;
     public float hp;
     public float startHp;
 
@@ -27,17 +28,16 @@ public class EnemyControl : MonoBehaviour
     public Animator anim;
     public Collider2D col;
 
-    // Start is called before the first frame update
     void Start()
     {
         hp = startHp;
         timer = firstShotDelay;
+        spd = startSpd;
 
         enemySpawner = GameObject.FindGameObjectWithTag("enemySpawner").GetComponent<EnemySpawner>();
         activePerks = GameObject.FindGameObjectWithTag("Crossbow").GetComponent<ActivePerks>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.down * spd * Time.deltaTime);
@@ -55,8 +55,19 @@ public class EnemyControl : MonoBehaviour
     {
         if (col.transform.tag == "Bullet")
         {
-            Destroy(col.gameObject);
-            TakeDamage(PlayerStats.Dmg);
+            if (!ActivePerks.Pene)
+                Destroy(col.gameObject);
+
+            if (ActivePerks.Vayne && ActivePerks.shootCount >= 3)
+            {
+                TakeDamage(PlayerStats.Dmg * 1.5f);
+                ActivePerks.shootCount = 0;
+            }                
+            else
+                TakeDamage(PlayerStats.Dmg);
+
+            if (ActivePerks.Slow)
+                StartCoroutine(Slow());
         }
 
         if (col.transform.tag == "Trap")
@@ -71,13 +82,13 @@ public class EnemyControl : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         float c = Random.Range(0f, 100f);
 
         if (c <= PlayerStats.CriChan)
         {
-            hp -= damage * 2;
+            hp -= damage * PlayerStats.CriDmg;
         }
         else
         {
@@ -109,5 +120,12 @@ public class EnemyControl : MonoBehaviour
     public void SelfDestroy()
     {
         Destroy(gameObject);
+    }
+
+    IEnumerator Slow()
+    {
+        spd = startSpd * 0.2f;
+        yield return new WaitForSeconds(2f);
+        spd = startSpd;
     }
 }

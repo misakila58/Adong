@@ -8,9 +8,15 @@ public class Shooting : MonoBehaviour
     public Animator anim;
 
     public GameObject bullet;
+    public Rigidbody2D rb;
     
     private float timer;
-    
+
+    public float movingShotCharge = 0;
+    public GameObject movingShotBullet;
+
+    public PlayerControl playerControl;
+
     void Update()
     {
         if (!EnemySpawner.shopTime)
@@ -28,6 +34,18 @@ public class Shooting : MonoBehaviour
         {
             anim.SetInteger("timer", 3);
         }
+
+        if (ActivePerks.MovingShot)
+        {
+            if (playerControl.isMove)
+                movingShotCharge++;
+
+            if (movingShotCharge >= 100 && !playerControl.isMove)
+            {
+                Instantiate(movingShotBullet, firePoint.transform.position, transform.rotation);
+                movingShotCharge = 0f;
+            }
+        }
     }
 
     void Shoot()
@@ -37,6 +55,7 @@ public class Shooting : MonoBehaviour
         {
             Instantiate(bullet, firePoint.transform.position, transform.rotation);
 
+            ActivePerks.shootCount++;
             timer = PlayerStats.FireSpd;
         }
     }

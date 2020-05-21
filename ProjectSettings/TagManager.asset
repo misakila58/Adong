@@ -10,6 +10,7 @@ TagManager:
   - Crossbow
   - Trap
   - Laser
+  - Enemy
   layers:
   - Default
   - TransparentFX

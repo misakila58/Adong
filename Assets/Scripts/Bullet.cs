@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 {
     public float spd;
 
+    private int peneCount = 0;
+
     void Start()
     {
         Destroy(gameObject, 5f);
@@ -14,5 +16,16 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.up * spd * Time.deltaTime);
-    }    
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.transform.tag == "Enemy")
+        {
+            peneCount++;
+        }
+
+        if (peneCount >= 2)
+            Destroy(gameObject);
+    }
 }

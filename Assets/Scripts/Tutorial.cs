@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 
 public class TutorialData
 {
@@ -15,8 +16,10 @@ public class TutorialData
 public class Tutorial : MonoBehaviour
 {
 
+    
     public TutorialData tutorialData = new TutorialData(); // Json 파일 생성된 내용을 저장하는 함수 
-
+    public int tutorialNum;
+    public Text tutorialPageNum; // 좌측 위 숫자 표시 
     
     // Start is called before the first frame update
     void Awake()
@@ -24,7 +27,45 @@ public class Tutorial : MonoBehaviour
 
     }
 
+    public void TutorialLeft()
+    {
+        if(tutorialNum > 1)
+        {
+            tutorialNum--;
+        }
+        TutorialContents();
+    }
+
+    public void TutorialRight()
+    {
+        if (tutorialNum <4)
+        {
+            tutorialNum++;
+        }
+        TutorialContents();
+    }
     
+    public void TutorialContents()
+    {
+
+        switch (tutorialNum)
+        {
+            case 1:
+                tutorialPageNum.text = "1/4";
+                break;
+            case 2:
+                tutorialPageNum.text = "2/4";
+                break;
+            case 3:
+                tutorialPageNum.text = "3/4";
+                break;
+            case 4:
+                tutorialPageNum.text = "4/4";
+                break;
+        }
+
+
+    }
 
     public void SaveTutorialData() //Json 파일 생성  
     {

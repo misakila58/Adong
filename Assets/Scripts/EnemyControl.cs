@@ -106,7 +106,7 @@ public class EnemyControl : MonoBehaviour
         hpBar.gameObject.SetActive(true);
         hpBar.fillAmount = hp / saveHp;
 
-        if (hp <= 0)
+        if (hp <= 0) //보스가 죽었을 시 
         {
             enemySpawner.curKills++;       
             PlayerStats.Score += score;

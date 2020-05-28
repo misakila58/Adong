@@ -34,7 +34,7 @@ public class ActivePerks : MonoBehaviour
     public static int shootCount = 0;
     public static bool Slow = false;
     public static bool Pene = false;
-    public static bool MovingShot = true;
+    public static bool MovingShot = false;
 
     void Start()
     {

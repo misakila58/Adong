@@ -153,12 +153,12 @@ public class UpgradeManager : MonoBehaviour
                 PlayerStats.Hp = PlayerStats.FullHp;
                 break;
             case 8:
-                PlayerStats.Dmg += 10;
+                PlayerStats.Dmg += 7;
                 itemList.Remove(itemList[8]);
                 itemList.Insert(8, nullPerk);
                 break;
             case 9:
-                PlayerStats.FireSpd -= 0.15f;
+                PlayerStats.FireSpd -= 0.12f;
                 itemList.Remove(itemList[9]);
                 itemList.Insert(9, nullPerk);
                 break;
@@ -173,12 +173,12 @@ public class UpgradeManager : MonoBehaviour
                 itemList.Insert(11, nullPerk);
                 break;
             case 12:
-                PlayerStats.Dmg += 15;
+                PlayerStats.Dmg += 9;
                 itemList.Remove(itemList[12]);
                 itemList.Insert(12, nullPerk);
                 break;
             case 13:
-                PlayerStats.FireSpd -= 0.2f;
+                PlayerStats.FireSpd -= 0.15f;
                 itemList.Remove(itemList[13]);
                 itemList.Insert(13, nullPerk);
                 break;
@@ -288,7 +288,7 @@ public class UpgradeManager : MonoBehaviour
             }
             saveItem = itemList[randomIndex];
         }
-        else if (enemySpawner.curStage >= 3 && enemySpawner.curStage <= 5)
+        else if (enemySpawner.curStage >= 3 && enemySpawner.curStage <= 6)
         {
             randomIndex = Random.Range(4, 12);
             while (itemList[randomIndex] == nullPerk)
@@ -297,12 +297,21 @@ public class UpgradeManager : MonoBehaviour
             }
             saveItem = itemList[randomIndex];
         }
-        else if (enemySpawner.curStage >= 6)
+        else if (enemySpawner.curStage >= 7 && enemySpawner.curStage <= 15)
         {
-            randomIndex = Random.Range(12, 15);
+            randomIndex = Random.Range(12, 20);
             while (itemList[randomIndex] == nullPerk)
             {
-                randomIndex = Random.Range(12, 15);
+                randomIndex = Random.Range(12, 20);
+            }
+            saveItem = itemList[randomIndex];
+        }
+        else if (enemySpawner.curStage >= 16)
+        {
+            randomIndex = Random.Range(0, 20);
+            while (itemList[randomIndex] == nullPerk)
+            {
+                randomIndex = Random.Range(0, 20);
             }
             saveItem = itemList[randomIndex];
         }
@@ -327,7 +336,7 @@ public class UpgradeManager : MonoBehaviour
             }
             saveItem = itemList[randomIndex];
         }
-        else if (enemySpawner.curStage >= 3 && enemySpawner.curStage <= 5)
+        else if (enemySpawner.curStage >= 3 && enemySpawner.curStage <= 6)
         {
             randomIndex = Random.Range(4, 12);
             while (randomIndex == saveTemp1 || itemList[randomIndex] == nullPerk)
@@ -336,12 +345,12 @@ public class UpgradeManager : MonoBehaviour
             }
             saveItem = itemList[randomIndex];
         }
-        else if (enemySpawner.curStage >= 6)
+        else if (enemySpawner.curStage >= 7)
         {
-            randomIndex = Random.Range(12, 15);
+            randomIndex = Random.Range(12, 20);
             while (randomIndex == saveTemp1 || itemList[randomIndex] == nullPerk)
             {
-                randomIndex = Random.Range(12, 15);
+                randomIndex = Random.Range(12, 20);
             }
             saveItem = itemList[randomIndex];
         }

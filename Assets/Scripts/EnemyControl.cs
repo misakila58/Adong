@@ -10,6 +10,7 @@ public class EnemyControl : MonoBehaviour
     public float startSpd;
     public float hp;
     public float startHp;
+    private float saveHp;
 
     public float firstShotDelay;
     public float reloadTimer;
@@ -30,12 +31,13 @@ public class EnemyControl : MonoBehaviour
 
     void Start()
     {
-        hp = startHp;
-        timer = firstShotDelay;
-        spd = startSpd;
-
         enemySpawner = GameObject.FindGameObjectWithTag("enemySpawner").GetComponent<EnemySpawner>();
         activePerks = GameObject.FindGameObjectWithTag("Crossbow").GetComponent<ActivePerks>();
+
+        saveHp = startHp + (startHp * enemySpawner.curStage * 0.1f);
+        hp = saveHp;
+        timer = firstShotDelay;
+        spd = startSpd;
     }
 
     void Update()
@@ -80,6 +82,12 @@ public class EnemyControl : MonoBehaviour
         {
             TakeDamage(activePerks.laserDmg);
         }
+
+        if (col.transform.tag == "Pass")
+        {
+            PlayerStats.Hp--;
+            Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(float damage)
@@ -96,7 +104,7 @@ public class EnemyControl : MonoBehaviour
         }
 
         hpBar.gameObject.SetActive(true);
-        hpBar.fillAmount = hp / startHp;
+        hpBar.fillAmount = hp / saveHp;
 
         if (hp <= 0)
         {

@@ -14,6 +14,7 @@ public class PlayerStats : MonoBehaviour
     public static float Hp;
     public float startHp;
 
+
     public static float Spd;
     public float startSpd;
 

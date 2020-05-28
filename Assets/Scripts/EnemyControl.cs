@@ -34,7 +34,7 @@ public class EnemyControl : MonoBehaviour
         enemySpawner = GameObject.FindGameObjectWithTag("enemySpawner").GetComponent<EnemySpawner>();
         activePerks = GameObject.FindGameObjectWithTag("Crossbow").GetComponent<ActivePerks>();
 
-        saveHp = startHp + (startHp * enemySpawner.curStage * 0.1f);
+        saveHp = startHp + (startHp * enemySpawner.curStage * 0.15f);
         hp = saveHp;
         timer = firstShotDelay;
         spd = startSpd;

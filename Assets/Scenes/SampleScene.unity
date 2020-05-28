@@ -2590,7 +2590,7 @@ MonoBehaviour:
   startRemainKills: 5
   startSpawnDelay: 1.2
   remainKillsAddAmount: 5
-  spawnDelayReduceAmount: 0.05
+  spawnDelayReduceAmount: 0.08
   curStage: 0
 --- !u!4 &1380443045
 Transform:
@@ -3556,7 +3556,7 @@ MonoBehaviour:
     m_Bits: 256
   swordRange: 2
   swordDmg: 50
-  trapDmg: 50
+  trapDmg: 40
   touchRange: {fileID: 820313090}
   laserDmg: 100
   laserStartDuration: 3

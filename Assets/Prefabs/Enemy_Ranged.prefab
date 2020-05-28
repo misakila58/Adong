@@ -139,7 +139,7 @@ MonoBehaviour:
   type: 2
   startSpd: 0.6
   hp: 0
-  startHp: 35
+  startHp: 40
   firstShotDelay: 2
   reloadTimer: 3
   score: 200

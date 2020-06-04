@@ -515,7 +515,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 198}
-  m_SizeDelta: {x: 1012.9, y: 879.5}
+  m_SizeDelta: {x: 1030.5, y: 886.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &179428848
 MonoBehaviour:
@@ -535,7 +535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d79a4a092759a4148aae771b702b3e46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 520bb04d2d3036049ad9c67ee547cc58, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3230,7 +3230,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -3558,11 +3558,14 @@ MonoBehaviour:
   swordDmg: 50
   trapDmg: 40
   touchRange: {fileID: 820313090}
-  laserDmg: 100
+  laserDmg: 120
   laserStartDuration: 3
-  swordCoolDown: 3
-  trapCoolDown: 3
-  laserCoolDown: 5
+  swordCoolDown: 5
+  swordCurCoolDown: 0
+  trapCoolDown: 8
+  trapCurCoolDown: 0
+  laserCoolDown: 15
+  laserCurCoolDown: 0
   swordObject: {fileID: 6335135930642133212, guid: fdd492b265454754ba5570b266b244b6,
     type: 3}
   trapObject: {fileID: 2745922327028154750, guid: 21d182535badb1c488e01f9b5892ef5a,

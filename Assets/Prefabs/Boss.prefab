@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 6567063585827954768}
   - component: {fileID: 8142248678579309621}
   - component: {fileID: 1117614984442918119}
-  - component: {fileID: 8901603917059560250}
+  - component: {fileID: -7141588456935360575}
   m_Layer: 8
   m_Name: Boss
   m_TagString: Untagged
@@ -294,7 +294,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.59
---- !u!114 &8901603917059560250
+--- !u!114 &-7141588456935360575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -303,6 +303,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 6567063585827954771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04ee162e6199ba46be7faa21f4e1c52, type: 3}
+  m_Script: {fileID: 11500000, guid: 56418b1ad04abb3448428c7e687f72a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  startSpd: 0
+  hp: 100
+  startHp: 0
+  firstShotDelay: 3
+  reloadTimer: 0
+  score: 0
+  bullet: {fileID: 5334236785970103777, guid: e4d966cdb1c9a5845a5ce4aee83cafc0, type: 3}
+  shootPosition: {fileID: 6567063585827954769}
+  hpBar: {fileID: 3480994689125910886}
+  anim: {fileID: 0}
+  col: {fileID: 1117614984442918119}

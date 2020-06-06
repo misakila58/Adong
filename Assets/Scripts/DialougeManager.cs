@@ -22,7 +22,7 @@ public class DialougeManager : MonoBehaviour
     string subDialogue;
 
     [SerializeField]
-    private int textNum = 0;
+    public int textNum = 0;
     [SerializeField]
     private bool endTextCheck;
     

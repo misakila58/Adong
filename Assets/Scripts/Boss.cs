@@ -12,6 +12,8 @@ public class Boss : MonoBehaviour
     public float startHp;
     private float saveHp;
 
+    public int bossSpecialStop; // 4가 되면 스탑 
+
     private float bossPattenTime;
 
     public float firstShotDelay;
@@ -19,6 +21,8 @@ public class Boss : MonoBehaviour
     private float timer;
 
     public float score;
+
+   public int bossPhase;
 
     public GameObject bullet;
     public Transform shootPosition;
@@ -29,59 +33,112 @@ public class Boss : MonoBehaviour
     public GameObject greenBottle;
     public GameObject purpleBottle;
 
+    public GameObject[] bossSpecialMonster = new GameObject[4];
+
+    public GameObject[] bossSpecialBullet = new GameObject[4];
+
+
+    public GameObject boss2;
+
+    public GameObject feather;
 
     private EnemySpawner enemySpawner;
+    private Bottle bottle;
     private ActivePerks activePerks;
     private DialougeManager dialougeManager;
+    private PlayerControl playerControl;
 
     public Animator anim;
     public Collider2D col;
 
+    private int bossSpecialCount; // 임의의 숫자 반복 후 필살기 실행 
+
     void Start()
     {
+        bossSpecialCount = 10;
         enemySpawner = GameObject.FindGameObjectWithTag("enemySpawner").GetComponent<EnemySpawner>();
         activePerks = GameObject.FindGameObjectWithTag("Crossbow").GetComponent<ActivePerks>();
         dialougeManager = GameObject.Find("GameManager").GetComponent<DialougeManager>();
+        playerControl = GameObject.Find("Crossbow").GetComponent<PlayerControl>();
 
-        bossPattenTime = 3;
-        saveHp = 100;
-        hp = saveHp;
-        timer = firstShotDelay;
-        spd = startSpd;
+        if(bossPhase ==1)
+        {
+            bossPattenTime = 3;
+            saveHp = 100;
+            hp = saveHp;
+            timer = firstShotDelay;
+            spd = startSpd;
+        }
+        else if(bossPhase == 2)
+        {
+            bossPattenTime = 3;
+            timer = firstShotDelay;
+            saveHp = 200;
+            hp = saveHp;
+            spd = startSpd * 1.5f;
+            TakeDamage(0);
+        }
+     
+       
     }
 
     void Update()
     {
-        timer -= Time.deltaTime;
-
-        transform.Translate(Vector3.down * spd * Time.deltaTime);
-
-        if (timer < 0)
+        if(EnemySpawner.shopTime == false)
         {
-            Debug.Log("보스 패턴 들어감");
-            
-            int patten = Random.Range(1, 1);
-            switch (patten) // 1 ~ 5까지는 1페이즈 2페이즈부터는 6 ~ 10 
+            timer -= Time.deltaTime;
+
+            transform.Translate(Vector3.down * spd * Time.deltaTime);
+
+            if (timer < 0)
             {
-                case 1:
-                    BossInitMonster();
-                    timer = bossPattenTime;
-                    break;
-                default:
-                    break;
+                Debug.Log("보스 패턴 들어감");
+                int patten;
+                if (bossPhase == 1)
+                {
+                    patten = Random.Range(1, 3);
+                }
+                else
+                {
+                    if(bossSpecialCount > 10)
+                    {
+                        patten = 5; // 필살기 
+                    }
+                    else
+                    patten = Random.Range(4, 4);
+                }
+                switch (patten) // 1 ~ 2까지는 1페이즈 2페이즈부터는 3 ~ 5 
+                {
+                    case 1:
+                        BossInitMonster();
+                        timer = bossPattenTime;
+                        break;
+                    case 2: // 약병 던지는 패턴 
+                        BossShootBottle();
+                        timer = bossPattenTime;
+                        break;
+                    case 3: //날개 날리기 
+                        BossShootFeather();
+                        timer = bossPattenTime;
+                        break;
+                    case 4: // 하울링 
+                        StartCoroutine(Howling());
+                        timer = bossPattenTime;
+                        break;
+                    case 5: //필살기
+
+                    default:
+                        break;
+                }
             }
-
-               
-
-
-           
         }
+       
 
 
-        if (EnemySpawner.shopTime)
-        {
-            Destroy(gameObject);
-        }
+        //if (EnemySpawner.shopTime)
+        //{
+        //    Destroy(gameObject);
+        //}
     
     }
 
@@ -140,18 +197,29 @@ public class Boss : MonoBehaviour
 
         if (hp <= 0)
         {
-            dialougeManager.textNum = 12; // 보스전 승리 
+        
+             // 보스전 승리 
             PlayerStats.Score += score;
-            col.enabled = false;
-            anim.SetTrigger("Die");
+            if (bossPhase == 1)
+            {
+                Destroy(this.gameObject);
+                Instantiate(boss2, this.transform.position, transform.rotation);
+            }
+            else
+            {
+               
+               // anim.SetTrigger("Die");
+                dialougeManager.textNum = 12;
+                dialougeManager.DialogueText();
+                //죽는 애니메이션 이 후 Destory 함수로 오브젝트 삭제 필요 
+
+            }
+           
         }
     }
 
-
-    void BossPatten()
-    {
-
-    }
+ 
+  
 
     void BossInitMonster() //보스 패턴 1 몬스터 생성 
     {
@@ -164,39 +232,51 @@ public class Boss : MonoBehaviour
         enemySpawner.InitMonster(new Vector2(shootPosition.transform.position.x + 1.5f, shootPosition.transform.position.y));
        
     }
-    
-    void BossShootBottle()
+
+    void BossShootBottle() // 패턴 2 약병 던지기 
     {
-        int Bottle = Random.Range(1, 3);
+        int Bottle = Random.Range(2, 2);
 
-        switch(Bottle)
+        switch (Bottle)
         {
-            case 1: //빨간약병 빨간색 - 석궁에 맞거나 지나쳤을 시 폭발하여 큰 데미지, 요격 가능, 요격 시 폭발
+        case 1: //빨간약병 빨간색 - 석궁에 맞거나 지나쳤을 시 폭발하여 큰 데미지, 요격 가능, 요격 시 폭발
+                Debug.Log("보스 약병 패턴1");
+                
                 Instantiate(redBottle, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), transform.rotation);
+        
                 break;
-            case 2: //초록색 - 석궁에 맞을 시 2초간 공격 불가, 박사와 일직선일때 투척, 요격 불가, 속도가 빠름
-                Instantiate(redBottle, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), transform.rotation);
+        case 2: //초록색 - 석궁에 맞을 시 2초간 공격 불가, 박사와 일직선일때 투척, 요격 불가, 속도가 빠름
+                Debug.Log("보스 약병 패턴2");
+             
+                Instantiate(greenBottle, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), transform.rotation);
+               
                 break;
-            case 3: //보라색 - 몬스터에게 투척, 몬스터에 맞을 시 해당 몬스터 체력 증가 후 회복 & 속도 증가, 요격 가능, 속도 느림, 제일 먼 적한테 던짐
-                Instantiate(redBottle, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), transform.rotation);
+        case 3: //보라색 - 몬스터에게 투척, 몬스터에 맞을 시 해당 몬스터 체력 증가 후 회복 & 속도 증가, 요격 가능, 속도 느림, 제일 먼 적한테 던짐
+                Debug.Log("보스 약병 패턴3");
+               
+               Instantiate(purpleBottle, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), transform.rotation);
+            
+        break;
+            default:
                 break;
-
-
-
         }
 
-
     }
-
-    void Shoot() //보스 패턴 1 
+   
+    void BossShootFeather() //패턴 3 날개 뿌리기 
     {
-        //애니메이션 세팅 
-        Instantiate(bullet, new Vector3(shootPosition.transform.position.x - 0.5f, shootPosition.transform.position.y, 0), transform.rotation);
-        Instantiate(bullet, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), transform.rotation);
-        Instantiate(bullet, new Vector3(shootPosition.transform.position.x + 0.5f, shootPosition.transform.position.y, 0), transform.rotation);
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x - 2.5f, shootPosition.transform.position.y, 0), transform.rotation);
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), transform.rotation);
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x + 2.5f, shootPosition.transform.position.y, 0), transform.rotation);
 
     }
 
+    IEnumerator Howling() //패턴 4 움직임 거꾸로 하기 
+    {
+        playerControl.isHowling = true;
+        yield return new WaitForSeconds(2f);
+        playerControl.isHowling = false;
+    }
 
 
 
@@ -217,4 +297,23 @@ public class Boss : MonoBehaviour
         yield return new WaitForSeconds(2f);
         spd = startSpd;
     }
+    
+
+    IEnumerator BossSpecialPatten()
+    {
+        //기모으는 애니메이션 시작
+
+
+        for(int i =0; i<4; i++)
+        {
+            Instantiate(bossSpecialMonster[i], new Vector3((Random.Range(-2f, 3f)), Random.Range(4f, 2.5f), 0), transform.rotation);
+
+        }
+
+
+        yield return new WaitForSeconds(10f);
+
+        playerControl.isHowling = false;
+    }
+
 }

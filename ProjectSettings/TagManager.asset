@@ -12,6 +12,14 @@ TagManager:
   - Laser
   - Enemy
   - Pass
+  - Explosion
+  - purpleBottle
+  - greenBottle
+  - Boss
+  - redBullet
+  - greenBullet
+  - skyBullet
+  - blueBullet
   layers:
   - Default
   - TransparentFX

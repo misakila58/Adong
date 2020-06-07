@@ -44,6 +44,9 @@ public class EnemyControl : MonoBehaviour
     {
         transform.Translate(Vector3.down * spd * Time.deltaTime);
 
+        if (transform.position.y < -5.0f)
+            Destroy(gameObject);
+
         if (type == 2)
             Shoot();
 
@@ -88,6 +91,20 @@ public class EnemyControl : MonoBehaviour
             PlayerStats.Hp--;
             Destroy(gameObject);
         }
+        if(col.transform.tag == "purpleBottle") //보스가 던진 약병 
+        {
+                   
+            hp = saveHp;
+            spd = spd * 1.3f;
+            TakeDamage(0); // HP바 업데이트를 위한 적용
+            Destroy(col.gameObject);
+        }
+
+        if(col.transform.tag == "Explosion")
+        {
+            TakeDamage(20.0f);
+        }
+
     }
 
     public void TakeDamage(float damage)

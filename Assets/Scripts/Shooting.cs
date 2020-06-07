@@ -16,10 +16,16 @@ public class Shooting : MonoBehaviour
     public GameObject movingShotBullet;
 
     public PlayerControl playerControl;
+    public bool possibilityShoot;
 
+
+    private void Start()
+    {
+        possibilityShoot = true;
+    }
     void Update()
     {
-        if (!EnemySpawner.shopTime)
+        if (!EnemySpawner.shopTime && possibilityShoot == true)
             Shoot();
 
         if (timer <= PlayerStats.FireSpd && timer >= PlayerStats.FireSpd * 0.80f)

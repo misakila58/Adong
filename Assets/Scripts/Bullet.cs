@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
 
     private int peneCount = 0;
 
+
+
     void Start()
     {
         Destroy(gameObject, 5f);

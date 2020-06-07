@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour
     private Vector2 inputVector;
 
     public bool isMove = false;
+    public bool isHowling = false;
 
     void Update()
     {
@@ -35,11 +36,16 @@ public class PlayerControl : MonoBehaviour
             inputVector = new Vector2(0, rb.velocity.y);
             isMove = false;
         }
-        
+
         if (Input.GetKey(KeyCode.A))
         {
             //rb.AddForce(new Vector2(-1 * PlayerStats.Spd * Time.deltaTime, 0));
             //transform.Translate(Vector2.left * PlayerStats.Spd * Time.deltaTime);
+            if(isHowling == true)
+            {
+                inputVector = new Vector2(1 * PlayerStats.Spd, rb.velocity.y);
+            }
+            else
             inputVector = new Vector2(-1 * PlayerStats.Spd, rb.velocity.y);
             isMove = true;
         }
@@ -47,6 +53,11 @@ public class PlayerControl : MonoBehaviour
         {
             //rb.AddForce(new Vector2(1 * PlayerStats.Spd * Time.deltaTime, 0));
             //transform.Translate(Vector2.right * PlayerStats.Spd * Time.deltaTime);
+            if (isHowling == true)
+            {
+                inputVector = new Vector2(-1 * PlayerStats.Spd, rb.velocity.y);
+            }
+            else
             inputVector = new Vector2(1 * PlayerStats.Spd, rb.velocity.y);
             isMove = true;
         }
@@ -67,4 +78,10 @@ public class PlayerControl : MonoBehaviour
     {
         rb.velocity = inputVector;
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    { 
+
+    }
 }
+

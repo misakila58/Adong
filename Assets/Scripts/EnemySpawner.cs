@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
     Vector2 spawnPos;
     void Start()
     {
-        spawnPos = new Vector2(Random.Range(-2f, 2f), 6.5f);
+        
         curStage = 1;
         curKills = 0;
         remainKills = startRemainKills;
@@ -39,8 +39,13 @@ public class EnemySpawner : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        InitMonster(spawnPos);
 
+        if (timer <= 0 && !shopTime)
+        {
+            spawnPos = new Vector2(Random.Range(-2f, 2f), 6.5f);
+            InitMonster(spawnPos);
+
+        }
         if (curKills >= remainKills)
         {
             upgradePanel.SetActive(true);
@@ -51,7 +56,8 @@ public class EnemySpawner : MonoBehaviour
     {
         if (timer <= 0 && !shopTime)
         {
-         
+
+            timer = spawnDelay;
             int enemyNum = Random.Range(1, 100);
             if (spawnType == 1)
             {
@@ -84,8 +90,7 @@ public class EnemySpawner : MonoBehaviour
                     Instantiate(enemy[2], M_pos, transform.rotation);
             }
 
-            Vector2 spawnPos = new Vector2(Random.Range(-2f, 2f), 6.5f);
-            timer = spawnDelay;
+         
         }
     }
 }

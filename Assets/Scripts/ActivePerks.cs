@@ -20,11 +20,14 @@ public class ActivePerks : MonoBehaviour
     private bool laserOn;
 
     public float swordCoolDown;
-    private float swordCurCoolDown;
+    [HideInInspector]
+    public float swordCurCoolDown;
     public float trapCoolDown;
-    private float trapCurCoolDown;
+    [HideInInspector]
+    public float trapCurCoolDown;
     public float laserCoolDown;
-    private float laserCurCoolDown;
+    [HideInInspector]
+    public float laserCurCoolDown;
 
     public GameObject swordObject;
     public GameObject trapObject;

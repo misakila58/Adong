@@ -52,7 +52,7 @@ public class EnemyControl : MonoBehaviour
 
         if (EnemySpawner.shopTime)
         {
-            Destroy(gameObject);
+            anim.SetTrigger("Die");
         }
     }
 
@@ -69,7 +69,20 @@ public class EnemyControl : MonoBehaviour
                 ActivePerks.shootCount = 0;
             }                
             else
-                TakeDamage(PlayerStats.Dmg);
+            {
+                if (ActivePerks.Pene)
+                {
+                    var b = col.GetComponent<Bullet>();
+                    if (b.peneCount == 2)
+                        TakeDamage(PlayerStats.Dmg * 0.5f);
+                    else
+                        TakeDamage(PlayerStats.Dmg);
+                }
+                else
+                {
+                    TakeDamage(PlayerStats.Dmg);
+                }
+            }                
 
             if (ActivePerks.Slow)
                 StartCoroutine(Slow());

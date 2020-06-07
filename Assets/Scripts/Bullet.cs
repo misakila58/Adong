@@ -6,7 +6,8 @@ public class Bullet : MonoBehaviour
 {
     public float spd;
 
-    private int peneCount = 0;
+    [HideInInspector]
+    public int peneCount = 0;
 
 
 

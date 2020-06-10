@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 15_Vayne
   m_EditorClassIdentifier: 
   index: 15
-  name: "\uBCA0\uC778W"
+  name: "\uC740\uD654\uC0B4"
   description: "\uC138\uBC88\uC9F8 \uD654\uC0B4\uB9C8\uB2E4 \uCD94\uAC00 \uD53C\uD574"
   icon: {fileID: 21300000, guid: 63c8a613ba2d35f438bb9f9fc0e20a27, type: 3}

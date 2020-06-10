@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 0_DmgUp
   m_EditorClassIdentifier: 
   index: 0
-  name: "\uD654\uC0B4\uCD09 \uAC1C\uC870"
+  name: "\uD654\uC0B4\uCD09 \uAC15\uD654 \u2160"
   description: "\uD53C\uD574 \uC57D\uAC04 \uC99D\uAC00"
   icon: {fileID: 21300000, guid: d54f9c4b0606ff647992d859be68208e, type: 3}

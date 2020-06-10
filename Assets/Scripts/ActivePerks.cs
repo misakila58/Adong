@@ -85,7 +85,7 @@ public class ActivePerks : MonoBehaviour
         }
         else
         {
-            laserObject.SetActive(false);
+            //laserObject.SetActive(false);
             laserDuration = laserStartDuration;
         }
     }

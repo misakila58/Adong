@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 11_CriUp2
   m_EditorClassIdentifier: 
   index: 11
-  name: "\uD06C\uB9AC\uC5C5"
+  name: "\uC815\uC870\uC900 \u2161"
   description: "\uCE58\uBA85\uD0C0\uD655\uB960 \uC801\uB2F9\uD788 \uC99D\uAC00"
   icon: {fileID: 21300000, guid: b02979cedc5bb2147b2cbb2eee48906d, type: 3}

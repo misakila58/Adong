@@ -101,12 +101,18 @@ MonoBehaviour:
     type: 3}
   purpleBottle: {fileID: 7381543923664954938, guid: ac771b7ea3ecdb047909c048be60c34e,
     type: 3}
-  Boss: {fileID: 6567063585827954771, guid: 490cedfc95c706d4ba728e55be19918a, type: 3}
+  boss: {fileID: 0}
+  boss2: {fileID: 0}
+  feather: {fileID: 0}
   FoundObjects: []
   shortDis: 0
   explosion: {fileID: 2070351408989721144, guid: 5e02f6151227baa48986c9be40c29de2,
     type: 3}
   bottleCase: 1
+  shockWave:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!61 &4726640467085598721
 BoxCollider2D:
   m_ObjectHideFlags: 0

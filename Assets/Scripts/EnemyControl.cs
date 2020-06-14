@@ -22,6 +22,7 @@ public class EnemyControl : MonoBehaviour
     public Transform shootPosition;
 
     public Image hpBar;
+    public Image hpBarBack;
 
     private EnemySpawner enemySpawner;
     private ActivePerks activePerks;
@@ -134,10 +135,13 @@ public class EnemyControl : MonoBehaviour
         }
 
         hpBar.gameObject.SetActive(true);
+        hpBarBack.gameObject.SetActive(true);
         hpBar.fillAmount = hp / saveHp;
 
         if (hp <= 0) //보스가 죽었을 시 
         {
+            hpBar.gameObject.SetActive(false);
+            hpBarBack.gameObject.SetActive(false);
             enemySpawner.curKills++;       
             PlayerStats.Score += score;
             col.enabled = false;

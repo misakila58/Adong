@@ -23,7 +23,7 @@ public class SettingManager : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(settingManager);//소리 관련을 이 오브젝트에서 다 처리해줄 것이기 떄문에 삭제 되면 안됨
+        //DontDestroyOnLoad(settingManager);//소리 관련을 이 오브젝트에서 다 처리해줄 것이기 떄문에 삭제 되면 안됨
         tutorial.LoadTutorialData();
         FirstGame();
         

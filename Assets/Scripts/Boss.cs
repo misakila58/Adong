@@ -22,6 +22,8 @@ public class Boss : MonoBehaviour
 
     public float score;
 
+    public static Boss instance;
+
    public int bossPhase;
 
     public GameObject bullet;
@@ -29,6 +31,7 @@ public class Boss : MonoBehaviour
 
     public Image hpBar;
 
+    public GameObject crossbow;
     public GameObject redBottle;
     public GameObject greenBottle;
     public GameObject purpleBottle;
@@ -51,17 +54,20 @@ public class Boss : MonoBehaviour
     public Animator anim;
     public Collider2D col;
 
+    public  Vector3 crossBowPosition;
     private int bossSpecialCount; // 임의의 숫자 반복 후 필살기 실행 
 
     void Start()
     {
+        instance = this;
         bossSpecialCount = 10;
         enemySpawner = GameObject.FindGameObjectWithTag("enemySpawner").GetComponent<EnemySpawner>();
         activePerks = GameObject.FindGameObjectWithTag("Crossbow").GetComponent<ActivePerks>();
         dialougeManager = GameObject.Find("GameManager").GetComponent<DialougeManager>();
         playerControl = GameObject.Find("Crossbow").GetComponent<PlayerControl>();
+        crossbow = GameObject.Find("Crossbow");
 
-        if(bossPhase ==1)
+        if (bossPhase ==1)
         {
             bossPattenTime = 3;
             saveHp = 100;
@@ -88,10 +94,11 @@ public class Boss : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-            transform.Translate(Vector3.down * spd * Time.deltaTime);
+            transform.Translate(Vector3.down * spd * Time.deltaTime);//좌우이동 
 
             if (timer < 0)
             {
+           
                 Debug.Log("보스 패턴 들어감");
                 int patten;
                 if (bossPhase == 1)
@@ -102,13 +109,15 @@ public class Boss : MonoBehaviour
                 {
                     if(bossSpecialCount > 10)
                     {
-                        patten = 5; // 필살기 
+                        patten = 7; // 필살기 
                     }
                     else
-                    patten = Random.Range(4, 4);
+                    patten = Random.Range(4, 7);
                 }
+                Debug.Log(patten);
                 switch (patten) // 1 ~ 2까지는 1페이즈 2페이즈부터는 3 ~ 5 
                 {
+                   
                     case 1:
                         BossInitMonster();
                         timer = bossPattenTime;
@@ -118,14 +127,29 @@ public class Boss : MonoBehaviour
                         timer = bossPattenTime;
                         break;
                     case 3: //날개 날리기 
-                        BossShootFeather();
+                        BossShootFeatherLeft();
                         timer = bossPattenTime;
+                        bossSpecialCount++;
                         break;
-                    case 4: // 하울링 
+                    case 4: //날개 오른쪽
+                        BossShootFeatherRight();
+                        timer = bossPattenTime;
+                        bossSpecialCount++;
+                        break;
+                    case 5: // 하울링 
                         StartCoroutine(Howling());
                         timer = bossPattenTime;
+                        bossSpecialCount++;
                         break;
-                    case 5: //필살기
+                    case 6: //충격파 
+                        ShockWave();
+                        timer = bossPattenTime;
+                        bossSpecialCount++;
+                        //충격파 애니메이션
+                        break;
+                    case 7: //필살기
+                        StartCoroutine(BossSpecialPatten());
+                        break;
 
                     default:
                         break;
@@ -135,10 +159,7 @@ public class Boss : MonoBehaviour
        
 
 
-        //if (EnemySpawner.shopTime)
-        //{
-        //    Destroy(gameObject);
-        //}
+    
     
     }
 
@@ -224,6 +245,7 @@ public class Boss : MonoBehaviour
     void BossInitMonster() //보스 패턴 1 몬스터 생성 
     {
         //애니메이션 세팅 
+        anim.SetTrigger("MonsterInit");
         enemySpawner.timer = 0;
         enemySpawner.InitMonster(new Vector2(shootPosition.transform.position.x - 1.5f, shootPosition.transform.position.y));
         enemySpawner.timer = 0;
@@ -235,26 +257,26 @@ public class Boss : MonoBehaviour
 
     void BossShootBottle() // 패턴 2 약병 던지기 
     {
-        int Bottle = Random.Range(2, 2);
+        int Bottle = Random.Range(1, 4);
 
         switch (Bottle)
         {
         case 1: //빨간약병 빨간색 - 석궁에 맞거나 지나쳤을 시 폭발하여 큰 데미지, 요격 가능, 요격 시 폭발
                 Debug.Log("보스 약병 패턴1");
-                
+                anim.SetTrigger("BottleRed");
                 Instantiate(redBottle, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), transform.rotation);
         
                 break;
         case 2: //초록색 - 석궁에 맞을 시 2초간 공격 불가, 박사와 일직선일때 투척, 요격 불가, 속도가 빠름
                 Debug.Log("보스 약병 패턴2");
-             
+                anim.SetTrigger("BottleGreen");
                 Instantiate(greenBottle, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), transform.rotation);
                
                 break;
         case 3: //보라색 - 몬스터에게 투척, 몬스터에 맞을 시 해당 몬스터 체력 증가 후 회복 & 속도 증가, 요격 가능, 속도 느림, 제일 먼 적한테 던짐
                 Debug.Log("보스 약병 패턴3");
-               
-               Instantiate(purpleBottle, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), transform.rotation);
+                anim.SetTrigger("BottlePurple");
+                Instantiate(purpleBottle, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), transform.rotation);
             
         break;
             default:
@@ -263,12 +285,20 @@ public class Boss : MonoBehaviour
 
     }
    
-    void BossShootFeather() //패턴 3 날개 뿌리기 
+    void BossShootFeatherLeft() //패턴 3 날개 뿌리기 
     {
-        Instantiate(feather, new Vector3(shootPosition.transform.position.x - 2.5f, shootPosition.transform.position.y, 0), transform.rotation);
-        Instantiate(feather, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), transform.rotation);
-        Instantiate(feather, new Vector3(shootPosition.transform.position.x + 2.5f, shootPosition.transform.position.y, 0), transform.rotation);
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x - 1.8f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, -13));
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x -0.7f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, -8.5f));
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x + 0.3f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 10));
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x + 1.3f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 10));
 
+    }
+    void BossShootFeatherRight() //패턴 3 날개 뿌리기 
+    {
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x - 1.2f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, -9));
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x - 0.0f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 0));
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x + 1.5f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 9));
+    
     }
 
     IEnumerator Howling() //패턴 4 움직임 거꾸로 하기 
@@ -277,6 +307,13 @@ public class Boss : MonoBehaviour
         yield return new WaitForSeconds(2f);
         playerControl.isHowling = false;
     }
+
+    void ShockWave() // 패턴5 충격파 
+    {
+        crossBowPosition = crossbow.transform.position;
+       Bottle.instance.ShockWaveInit(boss2.transform.position, crossBowPosition);
+    }
+
 
 
 
@@ -312,6 +349,7 @@ public class Boss : MonoBehaviour
 
 
         yield return new WaitForSeconds(10f);
+        timer = bossPattenTime;
 
         playerControl.isHowling = false;
     }

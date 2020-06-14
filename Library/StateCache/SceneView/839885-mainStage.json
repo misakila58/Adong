@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":165.6219940185547,"y":115.23257446289063,"z":-13.1875},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":184.80625915527345,"orthographic":true}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":0.17529842257499696,"y":2.2655837535858156,"z":-0.05666489154100418},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":1.5913200378417969,"orthographic":true}
+>>>>>>> remotes/origin/Boss_Pattern

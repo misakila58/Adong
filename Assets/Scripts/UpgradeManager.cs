@@ -42,6 +42,7 @@ public class UpgradeManager : MonoBehaviour
 
     void OnEnable()
     {
+        AudioManager.instance.Play("upgradeOpen");
         PickShopList();
     }
 
@@ -228,6 +229,7 @@ public class UpgradeManager : MonoBehaviour
         else if (enemySpawner.curStage == 7)
             EnemySpawner.spawnType = 4;
 
+        AudioManager.instance.Play("buy");
         EnemySpawner.spawnDelay -= enemySpawner.spawnDelayReduceAmount;
         enemySpawner.remainKills += enemySpawner.remainKillsAddAmount;
         EnemySpawner.shopTime = false;
@@ -247,6 +249,7 @@ public class UpgradeManager : MonoBehaviour
         else if (enemySpawner.curStage == 7)
             EnemySpawner.spawnType = 4;
 
+        AudioManager.instance.Play("buy");
         EnemySpawner.spawnDelay -= enemySpawner.spawnDelayReduceAmount;
         enemySpawner.remainKills += enemySpawner.remainKillsAddAmount;
         EnemySpawner.shopTime = false;
@@ -266,6 +269,7 @@ public class UpgradeManager : MonoBehaviour
         else if (enemySpawner.curStage == 7)
             EnemySpawner.spawnType = 4;
 
+        AudioManager.instance.Play("buy");
         EnemySpawner.spawnDelay -= enemySpawner.spawnDelayReduceAmount;
         enemySpawner.remainKills += enemySpawner.remainKillsAddAmount;
         EnemySpawner.shopTime = false;

@@ -134,6 +134,7 @@ public class EnemyControl : MonoBehaviour
             hp -= damage;
         }
 
+        AudioManager.instance.Play("hit");
         hpBar.gameObject.SetActive(true);
         hpBarBack.gameObject.SetActive(true);
         hpBar.fillAmount = hp / saveHp;

@@ -9,6 +9,7 @@ public class Laser : MonoBehaviour
 
     void OnEnable()
     {
+        AudioManager.instance.Play("laser");
         Invoke("DisableLaser", activePerks.laserStartDuration);
     }
 

@@ -388,7 +388,7 @@ MonoBehaviour:
   startHp: 80
   firstShotDelay: 0
   reloadTimer: 0
-  score: 200
+  score: 250
   bullet: {fileID: 0}
   shootPosition: {fileID: 0}
   hpBar: {fileID: 626623723651907883}

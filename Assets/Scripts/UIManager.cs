@@ -11,6 +11,12 @@ public class UIManager : MonoBehaviour
 
     public Text scoreText;
 
+    void Start()
+    {
+        AudioManager.instance.Stop("title");
+        AudioManager.instance.Play("ingame");
+    }
+
     void Update()
     {
         hpGage.fillAmount = PlayerStats.Hp / PlayerStats.FullHp;

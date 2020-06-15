@@ -40,11 +40,13 @@ public class Pause : MonoBehaviour
             pauseScreen.SetActive(false);
             Time.timeScale = 1;
             GamePaused = false;
-        }        
+        }
+        AudioManager.instance.Play("touch");
     }
 
     public void Resume()
     {
+        AudioManager.instance.Play("touch");
         pauseScreen.SetActive(false);
         Time.timeScale = 1;
         GamePaused = false;
@@ -52,6 +54,7 @@ public class Pause : MonoBehaviour
 
     public void Menu()
     {
+        AudioManager.instance.Play("touch");
         pauseScreen.SetActive(false);
         Time.timeScale = 1;
         GamePaused = false;
@@ -60,22 +63,26 @@ public class Pause : MonoBehaviour
 
     public void BGMLeftButton()
     {
+        AudioManager.instance.Play("touch");
         mixer.SetFloat("BGMVolume", PlayerPrefs.GetFloat("BGMVolume") - 2);
         PlayerPrefs.SetFloat("BGMVolume", PlayerPrefs.GetFloat("BGMVolume") - 2);
     }
     public void BGMRightButton()
     {
+        AudioManager.instance.Play("touch");
         mixer.SetFloat("BGMVolume", PlayerPrefs.GetFloat("BGMVolume") + 2);
         PlayerPrefs.SetFloat("BGMVolume", PlayerPrefs.GetFloat("BGMVolume") + 2);
     }
 
     public void SFXLeftButton()
     {
+        AudioManager.instance.Play("touch");
         mixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume") - 2);
         PlayerPrefs.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume") - 2);
     }
     public void SFXRightButton()
     {
+        AudioManager.instance.Play("touch");
         mixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume") + 2);
         PlayerPrefs.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume") + 2);
     }

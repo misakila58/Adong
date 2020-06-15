@@ -18,11 +18,11 @@ public class Shooting : MonoBehaviour
     public PlayerControl playerControl;
     public bool possibilityShoot;
 
-
-    private void Start()
+    void Start()
     {
         possibilityShoot = true;
     }
+
     void Update()
     {
         if (!EnemySpawner.shopTime && possibilityShoot == true)
@@ -61,6 +61,7 @@ public class Shooting : MonoBehaviour
         {
             Instantiate(bullet, firePoint.transform.position, transform.rotation);
 
+            AudioManager.instance.Play("shoot");
             ActivePerks.shootCount++;
             timer = PlayerStats.FireSpd;
         }

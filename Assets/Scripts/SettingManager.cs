@@ -30,14 +30,19 @@ public class SettingManager : MonoBehaviour
         mixer.SetFloat("BGMVolume", PlayerPrefs.GetFloat("BGMVolume"));
         mixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
 
-        AudioManager.instance.Play("test");
-        AudioManager.instance.Play("sfx");
+        AudioManager.instance.Stop("ingame");
+        AudioManager.instance.Play("title");
     }
 
     void Update()
     {
         BGMValue.text = $"{PlayerPrefs.GetFloat("BGMVolume") + 20}";
         SFXValue.text = $"{PlayerPrefs.GetFloat("SFXVolume") + 20}";
+
+        if (Input.GetMouseButton(0))
+        {
+            AudioManager.instance.Play("touch");
+        }
     }
 
     void FirstGame() // 튜토리얼 패널 실행 함수 
@@ -108,10 +113,26 @@ public class SettingManager : MonoBehaviour
         canStart = true;
     }
 
+    public void ResetData()
+    {
+        PlayerPrefs.DeleteKey("tuto");
+        Debug.Log("tuto key cleared");
+    }
+
     public void StartGame()
     {
         if (canStart)
-            SceneManager.LoadScene("InGameScene");
+        {
+            if (!PlayerPrefs.HasKey("tuto"))
+            {
+                tutorialPanel.SetActive(true);
+                PlayerPrefs.SetInt("tuto", 1);
+            }
+            else
+            {
+                SceneManager.LoadScene("InGameScene");
+            }
+        }            
     }
 
     public void EndGame()

@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  startSpd: 0.9
+  startSpd: 0.7
   hp: 0
   startHp: 26
   firstShotDelay: 0

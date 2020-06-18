@@ -158,6 +158,6 @@ MonoBehaviour:
     type: 3}
   bottleCase: 4
   shockWave:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1296964125670795732, guid: b0b0980004632e44695a35593963d424, type: 3}
+  - {fileID: 4881421615463224546, guid: 2951a6b7b207937468b4072991990f83, type: 3}
+  - {fileID: 5978167643344484796, guid: 51a42954e8729d24fa23cd3fb9931365, type: 3}

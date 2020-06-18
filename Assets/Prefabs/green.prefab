@@ -100,12 +100,18 @@ MonoBehaviour:
     type: 3}
   greenBottle: {fileID: 4421949928329014419}
   purpleBottle: {fileID: 4421949928329014419}
-  Boss: {fileID: 6567063585827954771, guid: 490cedfc95c706d4ba728e55be19918a, type: 3}
+  boss: {fileID: 0}
+  boss2: {fileID: 0}
+  feather: {fileID: 0}
   FoundObjects: []
   shortDis: 0
   explosion: {fileID: 2070351408989721144, guid: 5e02f6151227baa48986c9be40c29de2,
     type: 3}
   bottleCase: 2
+  shockWave:
+  - {fileID: 1296964125670795732, guid: b0b0980004632e44695a35593963d424, type: 3}
+  - {fileID: 4881421615463224546, guid: 2951a6b7b207937468b4072991990f83, type: 3}
+  - {fileID: 5978167643344484796, guid: 51a42954e8729d24fa23cd3fb9931365, type: 3}
 --- !u!50 &-7217465146886788160
 Rigidbody2D:
   serializedVersion: 4

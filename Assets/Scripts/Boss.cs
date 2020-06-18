@@ -46,7 +46,7 @@ public class Boss : MonoBehaviour
     public GameObject feather;
 
     private EnemySpawner enemySpawner;
-    private Bottle bottle;
+    public Bottle bottle;
     private ActivePerks activePerks;
     private DialougeManager dialougeManager;
     private PlayerControl playerControl;
@@ -66,6 +66,7 @@ public class Boss : MonoBehaviour
         dialougeManager = GameObject.Find("GameManager").GetComponent<DialougeManager>();
         playerControl = GameObject.Find("Crossbow").GetComponent<PlayerControl>();
         crossbow = GameObject.Find("Crossbow");
+        bottle = GameObject.Find("EnemySpawner").GetComponent<Bottle>();
 
         if (bossPhase ==1)
         {
@@ -107,12 +108,12 @@ public class Boss : MonoBehaviour
                 }
                 else
                 {
-                    if(bossSpecialCount > 10)
-                    {
-                        patten = 7; // 필살기 
-                    }
-                    else
-                    patten = Random.Range(4, 7);
+                    //if(bossSpecialCount > 10)
+                    //{
+                    //    patten = 7; // 필살기 
+                    //}
+                    //else
+                    patten = Random.Range(6, 6);
                 }
                 Debug.Log(patten);
                 switch (patten) // 1 ~ 2까지는 1페이즈 2페이즈부터는 3 ~ 5 
@@ -311,7 +312,7 @@ public class Boss : MonoBehaviour
     void ShockWave() // 패턴5 충격파 
     {
         crossBowPosition = crossbow.transform.position;
-       Bottle.instance.ShockWaveInit(boss2.transform.position, crossBowPosition);
+        bottle.ShockWaveInit(boss2.transform.position, crossBowPosition);
     }
 
 

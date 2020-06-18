@@ -7,6 +7,7 @@ public class ShockWave : MonoBehaviour
     public Animator anim;
 
     public static ShockWave instance;
+    public GameObject[] shockWave = new GameObject[3];
 
     // Start is called before the first frame update
     void Start()

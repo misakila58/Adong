@@ -25,7 +25,7 @@ public class Bottle : MonoBehaviour
     private EnemyControl enemyControl;
 
     public int bottleCase;
-    public GameObject[] shockWave = new GameObject[3];
+    
 
 
 
@@ -44,22 +44,22 @@ public class Bottle : MonoBehaviour
         
        if(GameObject.Find("shockWave0") == null && GameObject.Find("shockWave1") == null && GameObject.Find("shockWave2") == null)
         {
-            shockWave[0].transform.position = Vector3.Lerp(boss, crossbow, 0.3f);
-            GameObject a = Instantiate(shockWave[0], shockWave[0].transform.position, transform.rotation);
+            ShockWave.instance.shockWave[0].transform.position = Vector3.Lerp(boss, crossbow, 0.3f);
+            GameObject a = Instantiate(ShockWave.instance.shockWave[0], ShockWave.instance.shockWave[0].transform.position, transform.rotation);
             a.name = "shockWave0";
         }
 
        else  if (GameObject.Find("shockWave1") == null && GameObject.Find("shockWave0") != null &&GameObject.Find("shockWave2") == null)
         {
-            shockWave[1].transform.position = Vector3.Lerp(boss, crossbow, 0.6f);
-            GameObject b = Instantiate(shockWave[1], shockWave[1].transform.position, transform.rotation);
+            ShockWave.instance.shockWave[1].transform.position = Vector3.Lerp(boss, crossbow, 0.6f);
+            GameObject b = Instantiate(ShockWave.instance.shockWave[1], ShockWave.instance.shockWave[1].transform.position, transform.rotation);
             b.name = "shockWave1";
         }
 
         else if (GameObject.Find("shockWave2") == null && GameObject.Find("shockWave0") == null && GameObject.Find("shockWave1") != null)
         {
-            shockWave[2].transform.position = Vector3.Lerp(boss, crossbow, 0.9f);
-            GameObject c = Instantiate(shockWave[2], shockWave[2].transform.position, transform.rotation);
+            ShockWave.instance.shockWave[2].transform.position = Vector3.Lerp(boss, crossbow, 0.9f);
+            GameObject c = Instantiate(ShockWave.instance.shockWave[2], ShockWave.instance.shockWave[2].transform.position, transform.rotation);
             c.name = "shockWave2";
         }
 

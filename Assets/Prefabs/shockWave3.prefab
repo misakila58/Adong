@@ -32,6 +32,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 8015401794366199543}
+  shockWave:
+  - {fileID: 1296964125670795732, guid: b0b0980004632e44695a35593963d424, type: 3}
+  - {fileID: 4881421615463224546, guid: 2951a6b7b207937468b4072991990f83, type: 3}
+  - {fileID: 5978167643344484796}
 --- !u!1001 &7774988851943475815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42,12 +46,12 @@ PrefabInstance:
     - target: {fileID: 271686874932995785, guid: 5c3b391cd64ebc245b2f2283e96863b3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5987977
+      value: 0.14399992
       objectReference: {fileID: 0}
     - target: {fileID: 271686874932995785, guid: 5c3b391cd64ebc245b2f2283e96863b3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.7340002
+      value: -2.734
       objectReference: {fileID: 0}
     - target: {fileID: 271686874932995785, guid: 5c3b391cd64ebc245b2f2283e96863b3,
         type: 3}

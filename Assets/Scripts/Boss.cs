@@ -31,6 +31,8 @@ public class Boss : MonoBehaviour
 
     public Image hpBar;
 
+
+    public Sprite Boss2Image;
     public GameObject crossbow;
     public GameObject redBottle;
     public GameObject greenBottle;
@@ -229,10 +231,7 @@ public class Boss : MonoBehaviour
             }
             else
             {
-               
-               // anim.SetTrigger("Die");
-                dialougeManager.textNum = 12;
-                dialougeManager.DialogueText();
+                      
                 //죽는 애니메이션 이 후 Destory 함수로 오브젝트 삭제 필요 
 
             }
@@ -241,7 +240,18 @@ public class Boss : MonoBehaviour
     }
 
  
-  
+  void BossPhase2()
+    {
+        anim.SetTrigger("BossDie");
+        dialougeManager.textNum = 12;
+        dialougeManager.DialogueText();
+        bossPattenTime = 3;
+        timer = firstShotDelay;
+        saveHp = 200;
+        hp = saveHp;
+        spd = startSpd * 1.5f;
+        TakeDamage(0);
+    }
 
     void BossInitMonster() //보스 패턴 1 몬스터 생성 
     {

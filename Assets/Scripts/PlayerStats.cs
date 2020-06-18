@@ -13,8 +13,7 @@ public class PlayerStats : MonoBehaviour
     public static float FullHp;
     public static float Hp;
     public float startHp;
-
-
+    
     public static float Spd;
     public float startSpd;
 
@@ -29,6 +28,8 @@ public class PlayerStats : MonoBehaviour
 
     public static float Score;
 
+    public static bool Died;
+
     void Start()
     {
         Level = startLevel;
@@ -40,5 +41,6 @@ public class PlayerStats : MonoBehaviour
         CriChan = startCriChan;
         CriDmg = startCriDmg;
         Score = 0;
+        Died = false;
     }
 }

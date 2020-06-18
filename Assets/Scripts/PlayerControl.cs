@@ -76,7 +76,8 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = inputVector;
+        if (!PlayerStats.Died)
+            rb.velocity = inputVector;
     }
 
     void OnTriggerEnter2D(Collider2D col)

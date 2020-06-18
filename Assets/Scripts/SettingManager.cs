@@ -23,21 +23,26 @@ public class SettingManager : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(settingManager);//소리 관련을 이 오브젝트에서 다 처리해줄 것이기 떄문에 삭제 되면 안됨
+        //DontDestroyOnLoad(settingManager);//소리 관련을 이 오브젝트에서 다 처리해줄 것이기 떄문에 삭제 되면 안됨
         tutorial.LoadTutorialData();
         FirstGame();
         
         mixer.SetFloat("BGMVolume", PlayerPrefs.GetFloat("BGMVolume"));
         mixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
 
-        AudioManager.instance.Play("test");
-        AudioManager.instance.Play("sfx");
+        AudioManager.instance.Stop("ingame");
+        AudioManager.instance.Play("title");
     }
 
     void Update()
     {
         BGMValue.text = $"{PlayerPrefs.GetFloat("BGMVolume") + 20}";
         SFXValue.text = $"{PlayerPrefs.GetFloat("SFXVolume") + 20}";
+
+        if (Input.GetMouseButton(0))
+        {
+            AudioManager.instance.Play("touch");
+        }
     }
 
     void FirstGame() // 튜토리얼 패널 실행 함수 
@@ -108,10 +113,26 @@ public class SettingManager : MonoBehaviour
         canStart = true;
     }
 
+    public void ResetData()
+    {
+        PlayerPrefs.DeleteKey("tuto");
+        Debug.Log("tuto key cleared");
+    }
+
     public void StartGame()
     {
         if (canStart)
-            SceneManager.LoadScene("InGameScene");
+        {
+            if (!PlayerPrefs.HasKey("tuto"))
+            {
+                tutorialPanel.SetActive(true);
+                PlayerPrefs.SetInt("tuto", 1);
+            }
+            else
+            {
+                SceneManager.LoadScene("InGameScene");
+            }
+        }            
     }
 
     public void EndGame()

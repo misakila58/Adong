@@ -9,8 +9,6 @@ public class Bullet : MonoBehaviour
     [HideInInspector]
     public int peneCount = 0;
 
-
-
     void Start()
     {
         Destroy(gameObject, 5f);

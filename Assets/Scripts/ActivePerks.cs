@@ -94,6 +94,7 @@ public class ActivePerks : MonoBehaviour
     {
         if (swordCurCoolDown <= 0)
         {
+            AudioManager.instance.Play("sword");
             GameObject s = Instantiate(swordObject, swordPos.position, transform.rotation);
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(swordPos.position, swordRange, whatIsEnemies);
             for (int i = 0; i < enemiesToDamage.Length; i++)
@@ -127,6 +128,7 @@ public class ActivePerks : MonoBehaviour
             Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono);
             Vector3 adjustZ = new Vector3(worldPoint.x, worldPoint.y, trapObject.transform.position.z);
 
+            AudioManager.instance.Play("trap");
             Instantiate(trapObject).transform.position = adjustZ;
             trapRemainNum--;
         }

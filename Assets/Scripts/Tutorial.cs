@@ -12,43 +12,54 @@ public class TutorialData
 public class Tutorial : MonoBehaviour
 {
     public TutorialData tutorialData = new TutorialData(); // Json 파일 생성된 내용을 저장하는 함수 
-    public int tutorialNum;
-    public Text tutorialPageNum; // 좌측 위 숫자 표시 
+        
+    public GameObject[] tutoPanel;
+    public GameObject leftArrow;
+    public GameObject rightArrow;
 
+    public int tutorialNum = 1;
+
+    void Update()
+    {
+        if (tutorialNum == 1)
+        {
+            tutoPanel[0].SetActive(true);
+            tutoPanel[1].SetActive(false);
+            tutoPanel[2].SetActive(false);
+            leftArrow.SetActive(false);
+            rightArrow.SetActive(true);
+        }
+        else if (tutorialNum == 2)
+        {
+            tutoPanel[0].SetActive(false);
+            tutoPanel[1].SetActive(true);
+            tutoPanel[2].SetActive(false);
+            leftArrow.SetActive(true);
+            rightArrow.SetActive(true);
+        }
+        else if (tutorialNum == 3)
+        {
+            tutoPanel[0].SetActive(false);
+            tutoPanel[1].SetActive(false);
+            tutoPanel[2].SetActive(true);
+            leftArrow.SetActive(true);
+            rightArrow.SetActive(false);
+        }
+    }
+     
     public void TutorialLeft()
     {
         if(tutorialNum > 1)
         {
             tutorialNum--;
         }
-        TutorialContents();
     }
 
     public void TutorialRight()
     {
-        if (tutorialNum < 4)
+        if (tutorialNum < 3)
         {
             tutorialNum++;
-        }
-        TutorialContents();
-    }
-    
-    public void TutorialContents()
-    {
-        switch (tutorialNum)
-        {
-            case 1:
-                tutorialPageNum.text = "1/4";
-                break;
-            case 2:
-                tutorialPageNum.text = "2/4";
-                break;
-            case 3:
-                tutorialPageNum.text = "3/4";
-                break;
-            case 4:
-                tutorialPageNum.text = "4/4";
-                break;
         }
     }
 
@@ -56,14 +67,14 @@ public class Tutorial : MonoBehaviour
     {
         string str = JsonUtility.ToJson(tutorialData);
         File.WriteAllText(Application.dataPath + "/TestJson.json", JsonUtility.ToJson(tutorialData));
-        Debug.Log(Application.dataPath);
+        //Debug.Log(Application.dataPath);
     }
 
     public void LoadTutorialData() //Json 파일 불러오기 
     {
         string str2 = File.ReadAllText(Application.dataPath + "/TestJson.json");
         tutorialData = JsonUtility.FromJson<TutorialData>(str2);
-        Debug.Log(tutorialData.tutorialCheck);
+      //Debug.Log(tutorialData.tutorialCheck);
     }
 
 }

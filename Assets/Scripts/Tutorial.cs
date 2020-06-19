@@ -19,6 +19,12 @@ public class Tutorial : MonoBehaviour
 
     public int tutorialNum = 1;
 
+    void Start()
+    {
+        AudioManager.instance.Stop("ingame");
+        AudioManager.instance.Play("title");
+    }
+
     void Update()
     {
         if (tutorialNum == 1)

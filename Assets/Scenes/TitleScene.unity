@@ -2365,7 +2365,7 @@ MonoBehaviour:
   sounds:
   - name: title
     clip: {fileID: 8300000, guid: 41494d6a7ad484d4492c3c7b9c2a3d13, type: 3}
-    volume: 0.2
+    volume: 0.3
     loop: 1
     isSFX: 0
     source: {fileID: 0}

@@ -11,6 +11,11 @@ public class UIManager : MonoBehaviour
 
     public Text scoreText;
 
+    void Awake()
+    {
+        Screen.SetResolution(1080, 1920, true);
+    }
+
     void Start()
     {
         AudioManager.instance.Stop("title");

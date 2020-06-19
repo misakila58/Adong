@@ -21,17 +21,19 @@ public class SettingManager : MonoBehaviour
 
     bool canStart = true;
 
+    void Awake()
+    {
+        Screen.SetResolution(1080, 1920, true);
+
+        mixer.SetFloat("BGMVolume", PlayerPrefs.GetFloat("BGMVolume"));
+        mixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
+    }
+
     void Start()
     {
         //DontDestroyOnLoad(settingManager);//소리 관련을 이 오브젝트에서 다 처리해줄 것이기 떄문에 삭제 되면 안됨
         tutorial.LoadTutorialData();
-        FirstGame();
-        
-        mixer.SetFloat("BGMVolume", PlayerPrefs.GetFloat("BGMVolume"));
-        mixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
-
-        AudioManager.instance.Stop("ingame");
-        AudioManager.instance.Play("title");
+        FirstGame();        
     }
 
     void Update()

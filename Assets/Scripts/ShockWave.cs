@@ -7,12 +7,13 @@ public class ShockWave : MonoBehaviour
     public Animator anim;
 
     public static ShockWave instance;
+    public Bottle bottle;
 
     // Start is called before the first frame update
     void Start()
     {
-        
 
+        bottle = GameObject.Find("EnemySpawner").GetComponent<Bottle>();
         instance = this;
     
 
@@ -26,7 +27,7 @@ public class ShockWave : MonoBehaviour
 
     public void NextWave()
     {
-        Bottle.instance.ShockWaveInit(Boss.instance.boss2.transform.position,Boss.instance.crossBowPosition);
+        bottle.ShockWaveInit(Boss.instance.boss.transform.position, Boss.instance.crossBowPosition);
     }
 
     void OnTriggerEnter2D(Collider2D col)

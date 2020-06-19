@@ -320,6 +320,10 @@ MonoBehaviour:
   bullet: {fileID: 5334236785970103777, guid: e4d966cdb1c9a5845a5ce4aee83cafc0, type: 3}
   shootPosition: {fileID: 6152042155355575444}
   hpBar: {fileID: 9083695869971287157}
+  BossImage: {fileID: 0}
+  Boss2Image: {fileID: 4686778625196761250, guid: 9d4d4e2684f7d8549abd871d342b920a,
+    type: 3}
+  Boss2DieImage: {fileID: 21300000, guid: fb2d9d6e2a6d97b458c5bc90a6e6c10f, type: 3}
   crossbow: {fileID: 0}
   redBottle: {fileID: 8400599652701333280, guid: 349dc03f4fc2e694a9b7144c81e6db71,
     type: 3}
@@ -327,18 +331,26 @@ MonoBehaviour:
     type: 3}
   purpleBottle: {fileID: 7381543923664954938, guid: ac771b7ea3ecdb047909c048be60c34e,
     type: 3}
+  specialLaser: {fileID: 6538900325677004459, guid: ac16d78bc5efd8645a655c5ffc4b9cfa,
+    type: 3}
+  specialLaserShoot: {fileID: 3960477683160556444, guid: b9499f428db79e243a664ac37d48c579,
+    type: 3}
   bossSpecialMonster:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3013586493238373368, guid: bbe6ed4032110434f9f1cf88d46de16d, type: 3}
+  - {fileID: 4669269428766739798, guid: 121aee3205b92af41a21bfc176d06e4f, type: 3}
+  - {fileID: 4112060128830600155, guid: 5c3b391cd64ebc245b2f2283e96863b3, type: 3}
+  - {fileID: 4653678154128233312, guid: 29aa1b5d96d5c4e4f9c0a25316a7310a, type: 3}
   bossSpecialBullet:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  boss: {fileID: 6168608966269653260}
   boss2: {fileID: 8655395964813275416, guid: 0c8e4e9926fa8d54aa30516ae6faaa76, type: 3}
   feather: {fileID: 8762046153563838266, guid: a8027b3ec1445214e89b2740843fcc6a, type: 3}
+  soundWave: {fileID: 6193127348922089010, guid: 7b68ca9201ec7fb479f83208373c7590,
+    type: 3}
+  bottle: {fileID: 0}
   anim: {fileID: 3615331396057896139}
   col: {fileID: 3406383307066566319}
   crossBowPosition: {x: 0, y: 0, z: 0}

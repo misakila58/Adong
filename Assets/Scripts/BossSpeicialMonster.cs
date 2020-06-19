@@ -13,6 +13,7 @@ public class BossSpeicialMonster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject, 10.0f);
         boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>();
     }
 
@@ -30,35 +31,21 @@ public class BossSpeicialMonster : MonoBehaviour
                 if(col.transform.tag =="redBullet")
                 {
                     Destroy(gameObject);
-                    boss.bossSpecialStop++;
-
                 }
                 break;
             case 2:
-                if (col.transform.tag == "blueBullet")
-                {
-                    Destroy(gameObject);
-                    boss.bossSpecialStop++;
-
-                }
-                break;
-            case 3:
                 if (col.transform.tag == "greenBullet")
                 {
                     Destroy(gameObject);
-                    boss.bossSpecialStop++;
-
                 }
                 break;
-            case 4:
-                if (col.transform.tag == "skyBullet")
+            case 3:
+                if (col.transform.tag == "blueBullet")
                 {
                     Destroy(gameObject);
-                    boss.bossSpecialStop++;
 
                 }
                 break;
-
 
         }
 

@@ -8,6 +8,7 @@ public class SpecialBullet : MonoBehaviour
 
     private int peneCount = 0;
     public float m_fSpeed = 5.0f;
+    public GameObject[] specialBullet = new GameObject[3];
 
     public bool shootArrow;
 
@@ -15,34 +16,33 @@ public class SpecialBullet : MonoBehaviour
 
     private GameObject target;
 
+
+    public Vector3 crossBowPosition;
+    public GameObject crossBow;
+    public int specialBulletType;
+    private SpecialButton c_specialButton;
+    private SpecialBullet c_specialBullet;
+    private Boss boss;
+
+
+    public static SpecialBullet instance;
+
     void Start()
     {
-        shootArrow = false;
+      
+        c_specialButton = GameObject.Find("Boss").GetComponent<SpecialButton>();
+        c_specialBullet = GameObject.Find("Boss").GetComponent<SpecialBullet>();
+        boss = GameObject.Find("Boss").GetComponent<Boss>();
+     
+        instance = this;
+        shootArrow = true;
      //   Destroy(gameObject, 5f);
     }
-
-
-
-
+    
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
-        {
-
-            CastRay();
-
-            if (target == this.gameObject)
-            {  //타겟 오브젝트가 스크립트가 붙은 오브젝트라면
-
-                Shoot();
-
-            }
-
-        }
-
-  
-        if (shootArrow == true) 
+       if (shootArrow == true) 
         transform.Translate(Vector2.up * spd * Time.deltaTime);
     }
 
@@ -53,36 +53,66 @@ public class SpecialBullet : MonoBehaviour
         shootArrow = true;
     }
 
-    void CastRay() // 유닛 히트처리 부분.  레이를 쏴서 처리합니다. 
-
+    public void RedBullet()
     {
-
-        target = null;
-
-
-
-        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, 0f);
-
-
-
-        if (hit.collider != null)
-        { //히트되었다면 여기서 실행
-
-            Debug.Log (hit.collider.name);  //이 부분을 활성화 하면, 선택된 오브젝트의 이름이 찍혀 나옵니다. 
-
-            target = hit.collider.gameObject;  //히트 된 게임 오브젝트를 타겟으로 지정
-
-        }
-
+        crossBow = GameObject.Find("Crossbow");
+        crossBowPosition = crossBow.transform.position;
+         Instantiate(specialBullet[0], crossBowPosition, transform.rotation);
+           
     }
-
+    public void GreenBullet()
+    {
+        crossBow = GameObject.Find("Crossbow");
+        crossBowPosition = crossBow.transform.position;
+        Instantiate(specialBullet[1], crossBowPosition, transform.rotation);
+      
+    }
+    public void BlueBullet()
+    {
+        crossBow = GameObject.Find("Crossbow");
+        crossBowPosition = crossBow.transform.position;
+       Instantiate(specialBullet[2], crossBowPosition, transform.rotation);
+      
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        switch (specialBulletType)
+        {
+            case 1: //빨강 
+                if(col.transform.tag =="M_red")
+                {
 
+                    c_specialButton.num =2;
+                    c_specialButton.SpecialButtonOn();
+                    Destroy(GameObject.Find("redButton"));
+                }
+                break;
+
+            case 2: // 초록 
+                if (col.transform.tag == "M_green")
+                {
+                    c_specialButton.num = 3;
+                    c_specialButton.SpecialButtonOn();
+                    Destroy(GameObject.Find("greenButton"));
+                }
+                break;
+
+            case 3:// 파랑 
+                if (col.transform.tag == "M_blue")
+                {
+                    c_specialButton.num = 0;
+                    boss.StopSpecialPattern();
+                    Destroy(GameObject.Find("blueButton"));
+                }
+                break;
+
+            default:
+                break;
+
+        }
+
+    
     }
-
 
 }

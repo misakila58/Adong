@@ -54,12 +54,12 @@ public class EnemySpawner : MonoBehaviour
 
     public void InitMonster(Vector2 M_pos)
     {
-        if(curStage == 2)
+        if(curStage == 10) // 하드 코딩 보스 스테이지의 몬스터 소환 아래꺼 값 
         {
             Instantiate(enemy[3], new Vector3(0,3.5f,0), transform.rotation);
             curStage++;
         }
-        if (timer <= 0 && !shopTime)
+        if (timer <= 0 && !shopTime && curStage != 11) // 위 스테이지의 +1
         {
 
             timer = spawnDelay;

@@ -310,7 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   startSpd: 0
-  hp: 100
+  hp: 300
   startHp: 0
   bossSpecialStop: 0
   firstShotDelay: 3

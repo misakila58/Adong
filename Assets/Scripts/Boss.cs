@@ -271,7 +271,7 @@ public class Boss : MonoBehaviour
         anim.SetTrigger("BossDie");
         bossPattenTime = 3;
         timer = firstShotDelay;
-        saveHp = 200;
+        saveHp = 800;
         hp = saveHp;
         spd = startSpd * 1.5f;
         TakeDamage(0);

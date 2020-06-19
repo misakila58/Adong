@@ -20,12 +20,22 @@ public class PlayerControl : MonoBehaviour
                 if (touch.position.x < Screen.width / 2)
                 {
                     //transform.Translate(Vector2.left * PlayerStats.Spd * Time.deltaTime);
-                    inputVector = new Vector2(-1 * PlayerStats.Spd, rb.velocity.y);
+                    if (isHowling == true)
+                    {
+                        inputVector = new Vector2(1 * PlayerStats.Spd, rb.velocity.y);
+                    }
+                    else
+                       inputVector = new Vector2(-1 * PlayerStats.Spd, rb.velocity.y);
                     isMove = true;
                 }
                 else if (touch.position.x > Screen.width / 2)
                 {
                     //transform.Translate(Vector2.right * PlayerStats.Spd * Time.deltaTime);
+                    if (isHowling == true)
+                    {
+                        inputVector = new Vector2(-1 * PlayerStats.Spd, rb.velocity.y);
+                    }
+                    else
                     inputVector = new Vector2(1 * PlayerStats.Spd, rb.velocity.y);
                     isMove = true;
                 }

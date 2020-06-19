@@ -89,7 +89,10 @@
     <Compile Include="Assets\Scripts\ShockWave.cs" />
     <Compile Include="Assets\Scripts\Shooting.cs" />
     <Compile Include="Assets\Scripts\Sound.cs" />
+    <Compile Include="Assets\Scripts\SoundWave.cs" />
     <Compile Include="Assets\Scripts\SpecialBullet.cs" />
+    <Compile Include="Assets\Scripts\SpecialButton.cs" />
+    <Compile Include="Assets\Scripts\SpecialLaser.cs" />
     <Compile Include="Assets\Scripts\TitleSceneTextControl.cs" />
     <Compile Include="Assets\Scripts\Trap.cs" />
     <Compile Include="Assets\Scripts\Tutorial.cs" />
@@ -107,6 +110,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Images\주의사항.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Images\애니메이션적용시주의사항.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />

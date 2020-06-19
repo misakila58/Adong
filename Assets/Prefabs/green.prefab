@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -4970167058830120953}
   - component: {fileID: -7217465146886788160}
   - component: {fileID: 211383874150330501}
+  - component: {fileID: -2121493805004777541}
   m_Layer: 0
   m_Name: green
   m_TagString: greenBottle
@@ -73,7 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bbafb719c6b3390498942f3a9ae3c482, type: 3}
+  m_Sprite: {fileID: 4320627804764711029, guid: 3b4ec9ff71287174f974958e1f3d77ea,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,9 +111,9 @@ MonoBehaviour:
     type: 3}
   bottleCase: 2
   shockWave:
-  - {fileID: 1296964125670795732, guid: b0b0980004632e44695a35593963d424, type: 3}
-  - {fileID: 4881421615463224546, guid: 2951a6b7b207937468b4072991990f83, type: 3}
-  - {fileID: 5978167643344484796, guid: 51a42954e8729d24fa23cd3fb9931365, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!50 &-7217465146886788160
 Rigidbody2D:
   serializedVersion: 4
@@ -150,7 +152,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 5.004888, y: 5}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -159,3 +161,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
+--- !u!95 &-2121493805004777541
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4421949928329014419}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f490e32b43f4702469e02c2cbe2d62bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

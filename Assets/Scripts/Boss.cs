@@ -31,21 +31,28 @@ public class Boss : MonoBehaviour
 
     public Image hpBar;
 
-
+    public Image BossImage;
     public Sprite Boss2Image;
+    public Sprite Boss2DieImage;
     public GameObject crossbow;
     public GameObject redBottle;
     public GameObject greenBottle;
     public GameObject purpleBottle;
+    
+
+    public GameObject specialLaser;
+    public GameObject specialLaserShoot;
 
     public GameObject[] bossSpecialMonster = new GameObject[4];
 
     public GameObject[] bossSpecialBullet = new GameObject[4];
 
+    public GameObject boss;
 
     public GameObject boss2;
 
     public GameObject feather;
+    public GameObject soundWave;
 
     private EnemySpawner enemySpawner;
     public Bottle bottle;
@@ -54,7 +61,7 @@ public class Boss : MonoBehaviour
     private PlayerControl playerControl;
 
     public Animator anim;
-    public Collider2D col;
+    public CircleCollider2D col;
 
     public  Vector3 crossBowPosition;
     private int bossSpecialCount; // 임의의 숫자 반복 후 필살기 실행 
@@ -63,22 +70,29 @@ public class Boss : MonoBehaviour
     {
         instance = this;
         bossSpecialCount = 10;
+        col = gameObject.GetComponent<CircleCollider2D>();
         enemySpawner = GameObject.FindGameObjectWithTag("enemySpawner").GetComponent<EnemySpawner>();
         activePerks = GameObject.FindGameObjectWithTag("Crossbow").GetComponent<ActivePerks>();
         dialougeManager = GameObject.Find("GameManager").GetComponent<DialougeManager>();
         playerControl = GameObject.Find("Crossbow").GetComponent<PlayerControl>();
         crossbow = GameObject.Find("Crossbow");
         bottle = GameObject.Find("EnemySpawner").GetComponent<Bottle>();
+        bossPhase = 1;
+
+
 
         if (bossPhase ==1)
         {
+            dialougeManager.textNum = 6;
+            dialougeManager.DialogueText();
             bossPattenTime = 3;
             saveHp = 100;
             hp = saveHp;
             timer = firstShotDelay;
             spd = startSpd;
         }
-        else if(bossPhase == 2)
+
+        else if (bossPhase == 2)
         {
             bossPattenTime = 3;
             timer = firstShotDelay;
@@ -93,6 +107,7 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
+        
         if(EnemySpawner.shopTime == false)
         {
             timer -= Time.deltaTime;
@@ -110,12 +125,12 @@ public class Boss : MonoBehaviour
                 }
                 else
                 {
-                    //if(bossSpecialCount > 10)
-                    //{
-                    //    patten = 7; // 필살기 
-                    //}
-                    //else
-                    patten = Random.Range(6, 6);
+                    if(bossSpecialCount > 10)
+                    {
+                        patten = 7; // 필살기 
+                    }
+                    else
+                    patten = Random.Range(3, 7);
                 }
                 Debug.Log(patten);
                 switch (patten) // 1 ~ 2까지는 1페이즈 2페이즈부터는 3 ~ 5 
@@ -226,25 +241,34 @@ public class Boss : MonoBehaviour
             PlayerStats.Score += score;
             if (bossPhase == 1)
             {
-                Destroy(this.gameObject);
-                Instantiate(boss2, this.transform.position, transform.rotation);
+                BossPhase2();
+
             }
             else
             {
-                      
-                //죽는 애니메이션 이 후 Destory 함수로 오브젝트 삭제 필요 
+                dialougeManager.textNum = 12;
+                dialougeManager.DialogueText();
+              
 
             }
            
         }
     }
 
- 
-  void BossPhase2()
+ public void BossImageChange()
     {
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = Boss2Image;
+    }
+
+  public void BossPhase2()
+    {
+
+        this.gameObject.transform.localScale = new Vector3(1.0f, 1.0f);
+        this.gameObject.transform.position = new Vector3(0, 3.0f);
+        col.radius = 1f;
+        bossPhase = 2;
+
         anim.SetTrigger("BossDie");
-        dialougeManager.textNum = 12;
-        dialougeManager.DialogueText();
         bossPattenTime = 3;
         timer = firstShotDelay;
         saveHp = 200;
@@ -298,6 +322,7 @@ public class Boss : MonoBehaviour
    
     void BossShootFeatherLeft() //패턴 3 날개 뿌리기 
     {
+        anim.SetTrigger("LeftWing");
         Instantiate(feather, new Vector3(shootPosition.transform.position.x - 1.8f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, -13));
         Instantiate(feather, new Vector3(shootPosition.transform.position.x -0.7f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, -8.5f));
         Instantiate(feather, new Vector3(shootPosition.transform.position.x + 0.3f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 10));
@@ -306,6 +331,7 @@ public class Boss : MonoBehaviour
     }
     void BossShootFeatherRight() //패턴 3 날개 뿌리기 
     {
+        anim.SetTrigger("RightWing");
         Instantiate(feather, new Vector3(shootPosition.transform.position.x - 1.2f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, -9));
         Instantiate(feather, new Vector3(shootPosition.transform.position.x - 0.0f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 0));
         Instantiate(feather, new Vector3(shootPosition.transform.position.x + 1.5f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 9));
@@ -314,6 +340,8 @@ public class Boss : MonoBehaviour
 
     IEnumerator Howling() //패턴 4 움직임 거꾸로 하기 
     {
+        anim.SetTrigger("SoundWave");
+        Instantiate(soundWave, new Vector3(this.transform.position.x, this.transform.position.y + 0.5f, 0), transform.rotation);
         playerControl.isHowling = true;
         yield return new WaitForSeconds(2f);
         playerControl.isHowling = false;
@@ -321,8 +349,10 @@ public class Boss : MonoBehaviour
 
     void ShockWave() // 패턴5 충격파 
     {
+        anim.SetTrigger("ShockWave");
+        StartCoroutine(Timer());
         crossBowPosition = crossbow.transform.position;
-        bottle.ShockWaveInit(boss2.transform.position, crossBowPosition);
+        bottle.ShockWaveInit(this.gameObject.transform.position, crossBowPosition);
     }
 
 
@@ -338,8 +368,13 @@ public class Boss : MonoBehaviour
         yield return new WaitForSeconds(2f);
     }
 
+    IEnumerator Timer1()
+    {
+        yield return new WaitForSeconds(1f);
+    }
 
-        IEnumerator Slow()
+
+    IEnumerator Slow()
     {
         spd = startSpd * 0.2f;
         yield return new WaitForSeconds(2f);
@@ -349,10 +384,13 @@ public class Boss : MonoBehaviour
 
     IEnumerator BossSpecialPatten()
     {
+        bossSpecialCount = 0;
         //기모으는 애니메이션 시작
+        anim.SetTrigger("Special");
 
-
-        for(int i =0; i<4; i++)
+        timer = 20;
+        Instantiate(specialLaser, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, 0), transform.rotation);
+        for (int i =0; i<3; i++)
         {
             Instantiate(bossSpecialMonster[i], new Vector3((Random.Range(-2f, 3f)), Random.Range(4f, 2.5f), 0), transform.rotation);
 
@@ -360,9 +398,15 @@ public class Boss : MonoBehaviour
 
 
         yield return new WaitForSeconds(10f);
+        Instantiate(specialLaserShoot, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, 0), transform.rotation);
+        for (int i = 0; i < 3; i++)
+        {
+            Destroy(bossSpecialMonster[i]);
+
+        }
         timer = bossPattenTime;
 
-        playerControl.isHowling = false;
+       
     }
 
 }

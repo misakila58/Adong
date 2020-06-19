@@ -21,6 +21,9 @@ TagManager:
   - skyBullet
   - blueBullet
   - shockWave
+  - M_red
+  - M_blue
+  - M_green
   layers:
   - Default
   - TransparentFX

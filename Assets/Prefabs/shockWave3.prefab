@@ -43,12 +43,20 @@ PrefabInstance:
     - target: {fileID: 271686874932995785, guid: 5c3b391cd64ebc245b2f2283e96863b3,
         type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
       value: -0.30714428
+=======
+      value: 1.307646
+>>>>>>> remotes/origin/Boss_Pattern
       objectReference: {fileID: 0}
     - target: {fileID: 271686874932995785, guid: 5c3b391cd64ebc245b2f2283e96863b3,
         type: 3}
       propertyPath: m_LocalPosition.y
+<<<<<<< HEAD
       value: -2.8050213
+=======
+      value: -2.805
+>>>>>>> remotes/origin/Boss_Pattern
       objectReference: {fileID: 0}
     - target: {fileID: 271686874932995785, guid: 5c3b391cd64ebc245b2f2283e96863b3,
         type: 3}

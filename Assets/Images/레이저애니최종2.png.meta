@@ -92,6 +92,12 @@ TextureImporter:
   - first:
       213: -2848974541609814961
     second: "\uB808\uC774\uC800\uC560\uB2C8\uCD5C\uC8852_5"
+  - first:
+      213: 8043273945032180806
+    second: "\uB808\uC774\uC800\uC560\uB2C8\uCD5C\uC8852_6"
+  - first:
+      213: 3876898973380852149
+    second: "\uB808\uC774\uC800\uC560\uB2C8\uCD5C\uC8852_7"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -205,9 +211,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 22
-        width: 720
-        height: 1178
+        y: 0
+        width: 700
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,10 +231,10 @@ TextureImporter:
       name: "\uB808\uC774\uC800\uC560\uB2C8\uCD5C\uC8852_1"
       rect:
         serializedVersion: 2
-        x: 720
-        y: 22
-        width: 720
-        height: 1178
+        x: 700
+        y: 0
+        width: 700
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,10 +252,10 @@ TextureImporter:
       name: "\uB808\uC774\uC800\uC560\uB2C8\uCD5C\uC8852_2"
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 22
-        width: 720
-        height: 1178
+        x: 1400
+        y: 0
+        width: 700
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,10 +273,10 @@ TextureImporter:
       name: "\uB808\uC774\uC800\uC560\uB2C8\uCD5C\uC8852_3"
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 22
-        width: 720
-        height: 1178
+        x: 2100
+        y: 0
+        width: 700
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,10 +294,10 @@ TextureImporter:
       name: "\uB808\uC774\uC800\uC560\uB2C8\uCD5C\uC8852_4"
       rect:
         serializedVersion: 2
-        x: 2880
-        y: 22
-        width: 720
-        height: 1178
+        x: 2800
+        y: 0
+        width: 700
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,10 +315,10 @@ TextureImporter:
       name: "\uB808\uC774\uC800\uC560\uB2C8\uCD5C\uC8852_5"
       rect:
         serializedVersion: 2
-        x: 3600
-        y: 22
-        width: 720
-        height: 1178
+        x: 3500
+        y: 0
+        width: 700
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -330,10 +336,10 @@ TextureImporter:
       name: "\uB808\uC774\uC800\uC560\uB2C8\uCD5C\uC8852_6"
       rect:
         serializedVersion: 2
-        x: 4320
-        y: 22
-        width: 720
-        height: 1178
+        x: 4200
+        y: 0
+        width: 700
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,8 +347,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 504f2c5ecea374800800000000000000
-      internalID: 596510264791331845
+      spriteID: 6444cc4b9037f9f60800000000000000
+      internalID: 8043273945032180806
       vertices: []
       indices: 
       edges: []
@@ -351,10 +357,10 @@ TextureImporter:
       name: "\uB808\uC774\uC800\uC560\uB2C8\uCD5C\uC8852_7"
       rect:
         serializedVersion: 2
-        x: 5040
-        y: 22
-        width: 720
-        height: 1178
+        x: 4900
+        y: 0
+        width: 700
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,8 +368,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32c72b98fa4c25e30800000000000000
-      internalID: 4490868036650302499
+      spriteID: 5b9317a53138dc530800000000000000
+      internalID: 3876898973380852149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uB808\uC774\uC800\uC560\uB2C8\uCD5C\uC8852_8"
+      rect:
+        serializedVersion: 2
+        x: 5600
+        y: 0
+        width: 700
+        height: 1200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c34a7d0dcb220abe0800000000000000
+      internalID: -1468135284169792452
       vertices: []
       indices: 
       edges: []

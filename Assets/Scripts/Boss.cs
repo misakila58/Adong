@@ -100,7 +100,7 @@ public class Boss : MonoBehaviour
             dialougeManager.textNum = 6;
             dialougeManager.DialogueText();
             bossPattenTime = 3;
-            saveHp = 100;
+            saveHp = 10;
             hp = saveHp;
             timer = firstShotDelay;
             spd = startSpd;
@@ -282,11 +282,9 @@ public class Boss : MonoBehaviour
         anim.SetTrigger("BossDie");
         bossPattenTime = 3;
         timer = firstShotDelay;
-<<<<<<< HEAD
-        saveHp = 800;
-=======
-        saveHp = 500;
->>>>>>> remotes/origin/Boss_Pattern
+
+        saveHp = 2000;
+
         hp = saveHp;
         spd = startSpd * 1.5f;
         TakeDamage(0);
@@ -295,7 +293,7 @@ public class Boss : MonoBehaviour
     void BossInitMonster() //보스 패턴 1 몬스터 생성 
     {
         //애니메이션 세팅 
-        enemySpawner.curStage = 11; //하드 코딩 에너미 스포너에 +1 
+        enemySpawner.curStage = 3; //하드 코딩 에너미 스포너에 +1 
         anim.SetTrigger("MonsterInit");
         enemySpawner.timer = 0;
         enemySpawner.InitMonster(new Vector2(shootPosition.transform.position.x - 1.5f, shootPosition.transform.position.y));
@@ -303,7 +301,7 @@ public class Boss : MonoBehaviour
         enemySpawner.InitMonster(new Vector2(shootPosition.transform.position.x - 0.0f, shootPosition.transform.position.y));
         enemySpawner.timer = 0;
         enemySpawner.InitMonster(new Vector2(shootPosition.transform.position.x + 1.5f, shootPosition.transform.position.y));
-        enemySpawner.curStage = 10; //하드코딩 에너미 스포너값 
+        enemySpawner.curStage = 2; //하드코딩 에너미 스포너값 
     }
 
     void BossShootBottle() // 패턴 2 약병 던지기 

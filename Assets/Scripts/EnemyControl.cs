@@ -143,7 +143,8 @@ public class EnemyControl : MonoBehaviour
         {
             hpBar.gameObject.SetActive(false);
             hpBarBack.gameObject.SetActive(false);
-            enemySpawner.curKills++;       
+            if (enemySpawner.curStage != 2)
+                enemySpawner.curKills++;
             PlayerStats.Score += score;
             col.enabled = false;
             anim.SetTrigger("Die");

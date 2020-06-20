@@ -97,7 +97,7 @@ public class UpgradeManager : MonoBehaviour
                 itemList.Insert(0, nullPerk);
                 break;
             case 1:
-                PlayerStats.FireSpd -= 0.1f;
+                PlayerStats.FireSpd -= 0.08f;
                 itemList.Remove(itemList[1]);
                 itemList.Insert(1, nullPerk);
                 break;
@@ -159,7 +159,7 @@ public class UpgradeManager : MonoBehaviour
                 itemList.Insert(8, nullPerk);
                 break;
             case 9:
-                PlayerStats.FireSpd -= 0.11f;
+                PlayerStats.FireSpd -= 0.09f;
                 itemList.Remove(itemList[9]);
                 itemList.Insert(9, nullPerk);
                 break;
@@ -179,7 +179,7 @@ public class UpgradeManager : MonoBehaviour
                 itemList.Insert(12, nullPerk);
                 break;
             case 13:
-                PlayerStats.FireSpd -= 0.12f;
+                PlayerStats.FireSpd -= 0.1f;
                 itemList.Remove(itemList[13]);
                 itemList.Insert(13, nullPerk);
                 break;
@@ -388,7 +388,7 @@ public class UpgradeManager : MonoBehaviour
             }
             saveItem = itemList[randomIndex];
         }
-        else if (enemySpawner.curStage >= 3 && enemySpawner.curStage <= 5)
+        else if (enemySpawner.curStage >= 3 && enemySpawner.curStage <= 6)
         {
             randomIndex = Random.Range(4, 12);
             while (randomIndex == saveTemp1 || randomIndex == saveTemp2 || itemList[randomIndex] == nullPerk)

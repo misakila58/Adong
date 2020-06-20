@@ -3755,7 +3755,7 @@ MonoBehaviour:
   remainKills: 0
   startRemainKills: 5
   startSpawnDelay: 1.2
-  remainKillsAddAmount: 5
+  remainKillsAddAmount: 0
   spawnDelayReduceAmount: 0.08
   curStage: 0
 --- !u!4 &1380443045
@@ -6067,6 +6067,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9e16578d31bf08a4f91751af0dee5124, type: 3}
   - {fileID: 21300000, guid: 2fac3d6551958df4991ff9ddff4163bc, type: 3}
   - {fileID: 21300000, guid: 23451ef64401f3646bdf8fffbcbd4c84, type: 3}
+  - {fileID: 21300000, guid: b70c9eae37b11594688d72d611c12bfe, type: 3}
+  - {fileID: 21300000, guid: f621b442ce11cd249889a1ee3edbcd78, type: 3}
   textNum: 0
   endTextCheck: 0
 --- !u!114 &1992082978
@@ -6366,7 +6368,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC548\uB155\uD558\uC138\uC694"
+  m_Text: 
 --- !u!222 &2098501322
 CanvasRenderer:
   m_ObjectHideFlags: 0

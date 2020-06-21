@@ -255,6 +255,7 @@ public class Boss : MonoBehaviour
                 dialougeManager.textNum = 12;
                 dialougeManager.DialogueText();
                 anim.SetTrigger("Boss2Die");
+                col.radius = 0;
 
             }
            
@@ -392,9 +393,18 @@ public class Boss : MonoBehaviour
         spd = startSpd;
     }
 
-    public void StopSpecialPattern()
+    public void StopSpecialPattern() //레이져 실패 
     {
+        GameObject b = Instantiate(specialLaserShoot, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, 0), transform.rotation);
+        b.name = "LaserShoot";
+
+        SpecialLaser t_specialLaserShoot = GameObject.Find("LaserShoot").GetComponent<SpecialLaser>();
+        anim.SetTrigger("FailLaser");
+        t_specialLaserShoot.FailLaser();
+        Destroy(GameObject.Find("Laser"));
+
         StopCoroutine(coroutine);
+        timer = bossPattenTime;
         shooting.possibilityShoot = true;
     }
 
@@ -408,7 +418,8 @@ public class Boss : MonoBehaviour
         anim.SetTrigger("Special");
 
         timer = 15;
-        Instantiate(specialLaser, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, 0), transform.rotation);
+       GameObject a = Instantiate(specialLaser, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, 0), transform.rotation);
+        a.name = "Laser";
         for (int i =0; i<3; i++)
         {
           Instantiate(bossSpecialMonster[i], new Vector3((Random.Range(-2f, 2.5f)), Random.Range(4f, 2.5f), 0), transform.rotation);
@@ -416,9 +427,19 @@ public class Boss : MonoBehaviour
         }
 
 
+
         yield return new WaitForSeconds(10f);
+        GameObject b = Instantiate(specialLaserShoot, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, 0), transform.rotation);
+        b.name = "LaserShoot";
+        SpecialLaser t_specialLaserShoot = GameObject.Find("LaserShoot").GetComponent<SpecialLaser>();
+
+
+        t_specialLaserShoot.SuccessLaser();
         shooting.possibilityShoot = true;
-        Instantiate(specialLaserShoot, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, 0), transform.rotation);
+        Destroy(GameObject.Find("redButton"));
+        Destroy(GameObject.Find("greenButton"));
+        Destroy(GameObject.Find("blueButton"));
+      
         c_specialButton.num = 0;
 
            timer = bossPattenTime;

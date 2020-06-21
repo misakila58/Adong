@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SpecialLaser : MonoBehaviour
 {
+    public Animator anim;
+    public static SpecialLaser instance;
     // Start is called before the first frame update
     void Start()
     {
-        
+        instance = this;
     }
 
     public void DestorySelf()
@@ -20,6 +22,16 @@ public class SpecialLaser : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void FailLaser()
+    {
+        anim.SetTrigger("FailLaser");
+    }
+
+    public void SuccessLaser()
+    {
+        anim.SetTrigger("SuccessLaser");
     }
 
 

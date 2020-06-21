@@ -82,6 +82,10 @@ public class Bottle : MonoBehaviour
                 transform.Translate(Vector2.down * 4 * Time.deltaTime);
                 break;
             case 3: //날개 왼쪽 
+                if(FoundObjects[0] == null)
+                {
+                    Destroy(gameObject);
+                }
                 Vector2 a = FoundObjects[0].transform.position;
                 transform.Translate(a * 2 * Time.deltaTime);
                 break;

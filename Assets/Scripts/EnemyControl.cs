@@ -107,9 +107,9 @@ public class EnemyControl : MonoBehaviour
         }
         if(col.transform.tag == "purpleBottle") //보스가 던진 약병 
         {
-                   
-            hp = saveHp;
-            spd = spd * 1.3f;
+            AudioManager.instance.Play("bottleBreak");
+            hp = saveHp * 1.3f;
+            spd = spd * 1.5f;
             TakeDamage(0); // HP바 업데이트를 위한 적용
             Destroy(col.gameObject);
         }
@@ -143,7 +143,7 @@ public class EnemyControl : MonoBehaviour
         {
             hpBar.gameObject.SetActive(false);
             hpBarBack.gameObject.SetActive(false);
-            if (enemySpawner.curStage != 2)
+            if (enemySpawner.curStage != 3 )
                 enemySpawner.curKills++;
             PlayerStats.Score += score;
             col.enabled = false;

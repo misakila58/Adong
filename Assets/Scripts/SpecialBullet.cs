@@ -7,7 +7,6 @@ public class SpecialBullet : MonoBehaviour
     public float spd;
 
     private int peneCount = 0;
-    public float m_fSpeed = 5.0f;
     public GameObject[] specialBullet = new GameObject[3];
 
     public bool shootArrow;
@@ -86,6 +85,7 @@ public class SpecialBullet : MonoBehaviour
                     c_specialButton.num =2;
                     c_specialButton.SpecialButtonOn();
                     Destroy(GameObject.Find("redButton"));
+                    Destroy(gameObject);
                 }
                 break;
 
@@ -95,6 +95,7 @@ public class SpecialBullet : MonoBehaviour
                     c_specialButton.num = 3;
                     c_specialButton.SpecialButtonOn();
                     Destroy(GameObject.Find("greenButton"));
+                    Destroy(gameObject);
                 }
                 break;
 
@@ -104,6 +105,7 @@ public class SpecialBullet : MonoBehaviour
                     c_specialButton.num = 0;
                     boss.StopSpecialPattern();
                     Destroy(GameObject.Find("blueButton"));
+                    Destroy(gameObject);
                 }
                 break;
 

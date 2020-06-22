@@ -2423,6 +2423,54 @@ MonoBehaviour:
     loop: 0
     isSFX: 1
     source: {fileID: 0}
+  - name: bottleBreak
+    clip: {fileID: 8300000, guid: 3b754ed760f94524d954083a7508b4c4, type: 3}
+    volume: 0.7
+    loop: 0
+    isSFX: 1
+    source: {fileID: 0}
+  - name: featherShoot
+    clip: {fileID: 8300000, guid: b876a9457b993964ca9d038341ee818b, type: 3}
+    volume: 0.4
+    loop: 0
+    isSFX: 1
+    source: {fileID: 0}
+  - name: howl
+    clip: {fileID: 8300000, guid: 643eab6675cd7504b95693e88638e107, type: 3}
+    volume: 0.4
+    loop: 0
+    isSFX: 1
+    source: {fileID: 0}
+  - name: laserCast
+    clip: {fileID: 8300000, guid: 1278067d15d7fee44a902c8f90a3eab1, type: 3}
+    volume: 0.4
+    loop: 1
+    isSFX: 1
+    source: {fileID: 0}
+  - name: laserShoot
+    clip: {fileID: 8300000, guid: 92f7022e64944154eb8dce4d9332ff65, type: 3}
+    volume: 0.4
+    loop: 0
+    isSFX: 1
+    source: {fileID: 0}
+  - name: phase2Start
+    clip: {fileID: 8300000, guid: 29649379a256d8e4a84c908c96eaf44c, type: 3}
+    volume: 0.4
+    loop: 0
+    isSFX: 1
+    source: {fileID: 0}
+  - name: shockWave
+    clip: {fileID: 8300000, guid: ecb0aedc3e888cd4e8c559228f5a810a, type: 3}
+    volume: 0.4
+    loop: 0
+    isSFX: 1
+    source: {fileID: 0}
+  - name: summom
+    clip: {fileID: 8300000, guid: 21363d4c5b5f0ef42bf6e6d1384aff9f, type: 3}
+    volume: 0.4
+    loop: 0
+    isSFX: 1
+    source: {fileID: 0}
 --- !u!4 &1137100905
 Transform:
   m_ObjectHideFlags: 0

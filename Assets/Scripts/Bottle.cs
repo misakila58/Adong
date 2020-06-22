@@ -81,16 +81,29 @@ public class Bottle : MonoBehaviour
             case 2:
                 transform.Translate(Vector2.down * 4 * Time.deltaTime);
                 break;
-            case 3: //날개 왼쪽 
-                if(FoundObjects[0] == null)
+            case 3: //파란 약병  
+                if(FoundObjects.Count == 0)
                 {
+                    Debug.Log("파란 약병 찾나요");
                     Destroy(gameObject);
                 }
-                Vector2 a = FoundObjects[0].transform.position;
-                transform.Translate(a * 2 * Time.deltaTime);
+                else
+                {
+
+                    if(FoundObjects[0] == null)
+                    {
+                        Destroy(gameObject);
+                    }
+
+                    Vector2 a = FoundObjects[0].transform.position; // -1.5 -1.0 
+                    transform.position = Vector2.MoveTowards(transform.position, a, 3f * Time.deltaTime);
+                    //   transform.Translate(a * 2 * Time.deltaTime);
+                    
+
+                }
                 break;
             case 4: // 날개 오른쪽
-                transform.Translate(Vector2.down * 3 * Time.deltaTime);
+                transform.Translate(Vector2.down * 5 * Time.deltaTime);
                 break;
             case 5: // 충격파
 
@@ -110,11 +123,13 @@ public class Bottle : MonoBehaviour
             case 1: //빨간약병 빨간색 - 석궁에 맞거나 지나쳤을 시 폭발하여 큰 데미지, 요격 가능, 요격 시 폭발
                 if (col.transform.tag == "Bullet")
                 {
+                    AudioManager.instance.Play("bottleBreak");
                     Instantiate(explosion, new Vector3(this.transform.position.x, this.transform.position.y, 0),transform.rotation);
                     Destroy(this.gameObject); // 삭제 이펙트로 대체 후 제거 
                 }
                 if (col.transform.tag == "CrossBow")
                 {
+                    AudioManager.instance.Play("bottleBreak");
                     Instantiate(explosion, new Vector3(this.transform.position.x, this.transform.position.y, 0), transform.rotation);
                     Destroy(this.gameObject); // 삭제 이펙트로 대체 후 제거 
                 }
@@ -123,6 +138,7 @@ public class Bottle : MonoBehaviour
             case 2://초록색 - 석궁에 맞을 시 2초간 공격 불가, 박사와 일직선일때 투척, 요격 불가, 속도가 빠름
                 if (col.transform.tag == "Crossbow")
                 {
+                    AudioManager.instance.Play("bottleBreak");
                     StartCoroutine(PossibilityShoot());
                     this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 }
@@ -159,7 +175,7 @@ public class Bottle : MonoBehaviour
     IEnumerator PossibilityShoot()
     {
         shooting.possibilityShoot = false;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         shooting.possibilityShoot = true;
        
     }

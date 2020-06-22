@@ -69,7 +69,12 @@ public class Boss : MonoBehaviour
     public Animator anim;
     public CircleCollider2D col;
 
-    
+    public List<Transform> specialMonsterPosition = new List<Transform>();
+    List<Transform> specialMonsterPosition_2 = new List<Transform>();
+
+
+
+
 
 
     public  Vector3 crossBowPosition;
@@ -78,8 +83,11 @@ public class Boss : MonoBehaviour
     void Start()
     {
         this.name = "Boss";
+        //copySpecialMosterPosition();
+
+        
         instance = this;
-        bossSpecialCount = 10;
+        bossSpecialCount = 0;
         shooting = GameObject.FindGameObjectWithTag("Crossbow").GetComponent<Shooting>();
         col = gameObject.GetComponent<CircleCollider2D>();
         enemySpawner = GameObject.FindGameObjectWithTag("enemySpawner").GetComponent<EnemySpawner>();
@@ -100,7 +108,7 @@ public class Boss : MonoBehaviour
             dialougeManager.textNum = 6;
             dialougeManager.DialogueText();
             bossPattenTime = 3;
-            saveHp = 10;
+            saveHp = 100;
             hp = saveHp;
             timer = firstShotDelay;
             spd = startSpd;
@@ -122,7 +130,7 @@ public class Boss : MonoBehaviour
 
             if (timer < 0)
             {
-           
+               
                 Debug.Log("보스 패턴 들어감");
                 int patten;
                 if (bossPhase == 1)
@@ -144,7 +152,7 @@ public class Boss : MonoBehaviour
                    
                     case 1:
                         BossInitMonster();
-                        timer = bossPattenTime;
+                        timer = 5; // 다음 패턴에 들어가는 시간 
                         break;
                     case 2: // 약병 던지는 패턴 
                         BossShootBottle();
@@ -255,6 +263,7 @@ public class Boss : MonoBehaviour
                 dialougeManager.textNum = 12;
                 dialougeManager.DialogueText();
                 anim.SetTrigger("Boss2Die");
+                col.radius = 0;
 
             }
            
@@ -273,7 +282,7 @@ public class Boss : MonoBehaviour
 
   public void BossPhase2()
     {
-
+        AudioManager.instance.Play("phase2Start");
         this.gameObject.transform.localScale = new Vector3(0.8f, 0.8f);
         this.gameObject.transform.position = new Vector3(0, 3.0f);
         col.radius = 1f;
@@ -293,7 +302,8 @@ public class Boss : MonoBehaviour
     void BossInitMonster() //보스 패턴 1 몬스터 생성 
     {
         //애니메이션 세팅 
-        enemySpawner.curStage = 3; //하드 코딩 에너미 스포너에 +1 
+        AudioManager.instance.Play("summom");
+        enemySpawner.curStage = 4; //하드 코딩 에너미 스포너에 +1 
         anim.SetTrigger("MonsterInit");
         enemySpawner.timer = 0;
         enemySpawner.InitMonster(new Vector2(shootPosition.transform.position.x - 1.5f, shootPosition.transform.position.y));
@@ -301,7 +311,8 @@ public class Boss : MonoBehaviour
         enemySpawner.InitMonster(new Vector2(shootPosition.transform.position.x - 0.0f, shootPosition.transform.position.y));
         enemySpawner.timer = 0;
         enemySpawner.InitMonster(new Vector2(shootPosition.transform.position.x + 1.5f, shootPosition.transform.position.y));
-        enemySpawner.curStage = 2; //하드코딩 에너미 스포너값 
+        enemySpawner.curStage = 3; //
+
     }
 
     void BossShootBottle() // 패턴 2 약병 던지기 
@@ -336,28 +347,31 @@ public class Boss : MonoBehaviour
    
     void BossShootFeatherLeft() //패턴 3 날개 뿌리기 
     {
+        AudioManager.instance.Play("featherShoot");
         anim.SetTrigger("LeftWing");
-        Instantiate(feather, new Vector3(shootPosition.transform.position.x - 1.8f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, -13));
-        Instantiate(feather, new Vector3(shootPosition.transform.position.x -0.7f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, -8.5f));
-        Instantiate(feather, new Vector3(shootPosition.transform.position.x + 0.3f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 10));
-        Instantiate(feather, new Vector3(shootPosition.transform.position.x + 1.3f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 10));
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, -25));
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, -7.5f));
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 7.5f));
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 25f));
 
     }
     void BossShootFeatherRight() //패턴 3 날개 뿌리기 
     {
+        AudioManager.instance.Play("featherShoot");
         anim.SetTrigger("RightWing");
-        Instantiate(feather, new Vector3(shootPosition.transform.position.x - 1.2f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, -9));
-        Instantiate(feather, new Vector3(shootPosition.transform.position.x - 0.0f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 0));
-        Instantiate(feather, new Vector3(shootPosition.transform.position.x + 1.5f, shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 9));
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x , shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, -20));
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x , shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 0));
+        Instantiate(feather, new Vector3(shootPosition.transform.position.x , shootPosition.transform.position.y, 0), Quaternion.Euler(0, 0, 20));
     
     }
 
     IEnumerator Howling() //패턴 4 움직임 거꾸로 하기 
     {
+        AudioManager.instance.Play("howl");
         anim.SetTrigger("SoundWave");
         Instantiate(soundWave, new Vector3(this.transform.position.x, this.transform.position.y - 2.0f, 0), transform.rotation);
         playerControl.isHowling = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         playerControl.isHowling = false;
     }
 
@@ -392,33 +406,68 @@ public class Boss : MonoBehaviour
         spd = startSpd;
     }
 
-    public void StopSpecialPattern()
+    public void StopSpecialPattern() //레이져 실패 
     {
+        GameObject b = Instantiate(specialLaserShoot, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, 0), transform.rotation);
+        b.name = "LaserShoot";
+
+        AudioManager.instance.Stop("laserCast");
+        SpecialLaser t_specialLaserShoot = GameObject.Find("LaserShoot").GetComponent<SpecialLaser>();
+        anim.SetTrigger("FailLaser");
+        t_specialLaserShoot.FailLaser();
+        Destroy(GameObject.Find("Laser"));
+
         StopCoroutine(coroutine);
+        timer = bossPattenTime;
         shooting.possibilityShoot = true;
+    }
+    
+    void copySpecialMosterPosition()
+    {
+    
+        for (int i = 0; i < specialMonsterPosition.Count; i++)
+        {
+            specialMonsterPosition_2.Add(specialMonsterPosition[i]);
+        }
+          
     }
 
 
     IEnumerator BossSpecialPattern()
     {
+        copySpecialMosterPosition();
         shooting.possibilityShoot = false;
         c_specialButton.SpecialButtonOn();
         bossSpecialCount = 0;
         //기모으는 애니메이션 시작
         anim.SetTrigger("Special");
+        AudioManager.instance.Play("laserCast");
 
         timer = 15;
-        Instantiate(specialLaser, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, 0), transform.rotation);
+       GameObject a = Instantiate(specialLaser, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, 0), transform.rotation);
+        a.name = "Laser";
         for (int i =0; i<3; i++)
         {
-          Instantiate(bossSpecialMonster[i], new Vector3((Random.Range(-2f, 2.5f)), Random.Range(4f, 2.5f), 0), transform.rotation);
+            int j = Random.Range(0, specialMonsterPosition_2.Count);
+          Instantiate(bossSpecialMonster[i], specialMonsterPosition_2[j].transform.position, transform.rotation);
+            specialMonsterPosition_2.Remove(specialMonsterPosition_2[j]);
 
         }
 
 
+
         yield return new WaitForSeconds(10f);
+        GameObject b = Instantiate(specialLaserShoot, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, 0), transform.rotation);
+        b.name = "LaserShoot";
+        SpecialLaser t_specialLaserShoot = GameObject.Find("LaserShoot").GetComponent<SpecialLaser>();
+
+
+        t_specialLaserShoot.SuccessLaser();
         shooting.possibilityShoot = true;
-        Instantiate(specialLaserShoot, new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, 0), transform.rotation);
+        Destroy(GameObject.Find("redButton"));
+        Destroy(GameObject.Find("greenButton"));
+        Destroy(GameObject.Find("blueButton"));
+      
         c_specialButton.num = 0;
 
            timer = bossPattenTime;

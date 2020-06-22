@@ -12,7 +12,7 @@ public class ShockWave : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        AudioManager.instance.Play("shockWave");
         bottle = GameObject.Find("EnemySpawner").GetComponent<Bottle>();
         instance = this;
     

@@ -3753,7 +3753,7 @@ MonoBehaviour:
   upgradePanel: {fileID: 179428846}
   curKills: 0
   remainKills: 0
-  startRemainKills: 5
+  startRemainKills: 1
   startSpawnDelay: 1.2
   remainKillsAddAmount: 0
   spawnDelayReduceAmount: 0.08

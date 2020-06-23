@@ -36,7 +36,7 @@ public class PlayerControl : MonoBehaviour
                         inputVector = new Vector2(-1 * PlayerStats.Spd, rb.velocity.y);
                     }
                     else
-                    inputVector = new Vector2(1 * PlayerStats.Spd, rb.velocity.y);
+                        inputVector = new Vector2(1 * PlayerStats.Spd, rb.velocity.y);
                     isMove = true;
                 }
             }

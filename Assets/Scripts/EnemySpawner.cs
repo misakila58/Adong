@@ -52,12 +52,12 @@ public class EnemySpawner : MonoBehaviour
 
     public void InitMonster(Vector2 M_pos)
     {
-        if(curStage == 2)
+        if(curStage == 11)
         {
             Instantiate(enemy[3], new Vector3(0,3.5f,0), transform.rotation);
             curStage++;
         }
-        if (timer <= 0 && !shopTime && curStage != 3) // 위 스테이지의 +1
+        if (timer <= 0 && !shopTime && curStage != 12) // 위 스테이지의 +1
         {
 
             timer = spawnDelay;

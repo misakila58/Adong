@@ -143,7 +143,7 @@ public class EnemyControl : MonoBehaviour
         {
             hpBar.gameObject.SetActive(false);
             hpBarBack.gameObject.SetActive(false);
-            if (enemySpawner.curStage != 3 )
+            if (enemySpawner.curStage != 12 )
                 enemySpawner.curKills++;
             PlayerStats.Score += score;
             col.enabled = false;

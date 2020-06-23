@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - BossSpeicialMonster
     - Bottle
     - Bullet
+    - DestroySelf
     - DialougeManager
     - EnemyBullet
     - EnemyControl
@@ -25,6 +26,10 @@ ScriptsOnlyBuild:
     - SettingManager
     - ShockWave
     - Shooting
+    - SoundWave
+    - SpecialBullet
+    - SpecialButton
+    - SpecialLaser
     - Trap
     - Tutorial
     - UIManager
@@ -97,63 +102,73 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11246}
     - Class: 114
-      Script: {instanceID: 11352}
+      Script: {instanceID: 11274}
     - Class: 114
-      Script: {instanceID: 11392}
+      Script: {instanceID: 11354}
     - Class: 114
-      Script: {instanceID: 11466}
+      Script: {instanceID: 11394}
     - Class: 114
-      Script: {instanceID: 11580}
+      Script: {instanceID: 11460}
     - Class: 114
-      Script: {instanceID: 11694}
+      Script: {instanceID: 11470}
     - Class: 114
-      Script: {instanceID: 11746}
+      Script: {instanceID: 11584}
     - Class: 114
-      Script: {instanceID: 11774}
+      Script: {instanceID: 11698}
     - Class: 114
-      Script: {instanceID: 11820}
+      Script: {instanceID: 11750}
     - Class: 114
-      Script: {instanceID: 11898}
+      Script: {instanceID: 11778}
     - Class: 114
-      Script: {instanceID: 11976}
+      Script: {instanceID: 11824}
     - Class: 114
-      Script: {instanceID: 11994}
+      Script: {instanceID: 11854}
     - Class: 114
-      Script: {instanceID: 12014}
+      Script: {instanceID: 11902}
     - Class: 114
-      Script: {instanceID: 12210}
+      Script: {instanceID: 11980}
     - Class: 114
-      Script: {instanceID: 12246}
+      Script: {instanceID: 11998}
     - Class: 114
-      Script: {instanceID: 12258}
+      Script: {instanceID: 12018}
     - Class: 114
-      Script: {instanceID: 12296}
+      Script: {instanceID: 12214}
     - Class: 114
-      Script: {instanceID: 12460}
+      Script: {instanceID: 12250}
     - Class: 114
-      Script: {instanceID: 12482}
+      Script: {instanceID: 12262}
     - Class: 114
-      Script: {instanceID: 12606}
+      Script: {instanceID: 12300}
+    - Class: 114
+      Script: {instanceID: 12464}
+    - Class: 114
+      Script: {instanceID: 12466}
+    - Class: 114
+      Script: {instanceID: 12488}
     - Class: 114
       Script: {instanceID: 12612}
     - Class: 114
-      Script: {instanceID: 12698}
+      Script: {instanceID: 12618}
     - Class: 114
-      Script: {instanceID: 12772}
+      Script: {instanceID: 12704}
     - Class: 114
-      Script: {instanceID: 12794}
+      Script: {instanceID: 12778}
     - Class: 114
-      Script: {instanceID: 12960}
+      Script: {instanceID: 12800}
     - Class: 114
-      Script: {instanceID: 12984}
+      Script: {instanceID: 12966}
     - Class: 114
-      Script: {instanceID: 13074}
+      Script: {instanceID: 12990}
     - Class: 114
-      Script: {instanceID: 13110}
+      Script: {instanceID: 13080}
+    - Class: 114
+      Script: {instanceID: 13116}
     - Class: 114
       Script: {instanceID: 13166}
     - Class: 114
-      Script: {instanceID: 13242}
+      Script: {instanceID: 13174}
+    - Class: 114
+      Script: {instanceID: 13250}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -206,29 +221,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11208}
     - Class: 114
-      Script: {instanceID: 11352}
+      Script: {instanceID: 11354}
     - Class: 114
-      Script: {instanceID: 11392}
+      Script: {instanceID: 11394}
     - Class: 114
-      Script: {instanceID: 11820}
+      Script: {instanceID: 11824}
     - Class: 114
-      Script: {instanceID: 11846}
+      Script: {instanceID: 11850}
     - Class: 114
-      Script: {instanceID: 12164}
+      Script: {instanceID: 12168}
     - Class: 114
-      Script: {instanceID: 12246}
+      Script: {instanceID: 12250}
     - Class: 114
-      Script: {instanceID: 12486}
+      Script: {instanceID: 12492}
     - Class: 114
-      Script: {instanceID: 12500}
+      Script: {instanceID: 12506}
     - Class: 114
-      Script: {instanceID: 12772}
+      Script: {instanceID: 12778}
     - Class: 114
-      Script: {instanceID: 12942}
+      Script: {instanceID: 12948}
     - Class: 114
-      Script: {instanceID: 13148}
+      Script: {instanceID: 13154}
     - Class: 114
-      Script: {instanceID: 13166}
+      Script: {instanceID: 13174}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -272,7 +287,7 @@ ScriptsOnlyBuild:
     className: SettingManager
   - hash:
       serializedVersion: 2
-      Hash: 659d6ceab26f9e4237abaaf29249f293
+      Hash: f61e7a40c03da5f44eff0ef46e7f0d94
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShockWave
@@ -294,6 +309,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ActivePerks
+  - hash:
+      serializedVersion: 2
+      Hash: 3016358d5f05e3d07ad09664ee9ff0ac
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DestroySelf
   - hash:
       serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
@@ -372,6 +393,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TitleSceneTextControl
+  - hash:
+      serializedVersion: 2
+      Hash: e732aecd5aba39101918d90ceb89ccc2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpecialLaser
   - hash:
       serializedVersion: 2
       Hash: bb6a2055e868089ed05dbc48a47dd538
@@ -458,7 +485,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: 3a0510e67f5923923c72b2b7850e05ea
+      Hash: 512af95c91e90e50b0edeb0d7df320bd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UpgradeManager
@@ -488,7 +515,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: c582dbace3c8959af4b0811e5332cdef
+      Hash: db7a9967235b5f529a38b9e0ba21d7d9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpecialBullet
@@ -620,10 +647,16 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
-      Hash: 467b908711f195015224fd47dd37b2ff
+      Hash: bba9b2f374e9c0efbff0971c0e4bbfa6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Boss
+  - hash:
+      serializedVersion: 2
+      Hash: 066a5dcbf4ed25ffdbfcebba40dfe77f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpecialButton
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -674,7 +707,7 @@ ScriptsOnlyBuild:
     className: PlayerControl
   - hash:
       serializedVersion: 2
-      Hash: 7624569b7faba1ea42fd953aa37176b2
+      Hash: 7c3a7f745623b9319bd071fd5051c24a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DialougeManager
@@ -824,6 +857,12 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SoundWave
+  - hash:
+      serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -868,4 +907,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/TitleScene.unity
   - Assets/Scenes/InGameScene.unity
-  playerPath: C:/Users/sky11/Desktop/build/ADONG.apk
+  playerPath: C:/Users/sky11/Desktop/bukld/HELLSAVIOR.apk

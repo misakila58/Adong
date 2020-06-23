@@ -8,6 +8,7 @@ public class UpgradeManager : MonoBehaviour
     public EnemySpawner enemySpawner;
     //public BossSpawner bossSpawner;
     public DialougeManager dialougeManager;
+    public PlayerControl playerControl;
 
     public Text[] nameText;
     public Text[] descriptionText;
@@ -43,6 +44,7 @@ public class UpgradeManager : MonoBehaviour
     void OnEnable()
     {
         AudioManager.instance.Play("upgradeOpen");
+        playerControl.isHowling = false;
         PickShopList();
     }
 
@@ -159,7 +161,7 @@ public class UpgradeManager : MonoBehaviour
                 itemList.Insert(8, nullPerk);
                 break;
             case 9:
-                PlayerStats.FireSpd -= 0.09f;
+                PlayerStats.FireSpd -= 0.08f;
                 itemList.Remove(itemList[9]);
                 itemList.Insert(9, nullPerk);
                 break;
@@ -179,7 +181,7 @@ public class UpgradeManager : MonoBehaviour
                 itemList.Insert(12, nullPerk);
                 break;
             case 13:
-                PlayerStats.FireSpd -= 0.1f;
+                PlayerStats.FireSpd -= 0.08f;
                 itemList.Remove(itemList[13]);
                 itemList.Insert(13, nullPerk);
                 break;

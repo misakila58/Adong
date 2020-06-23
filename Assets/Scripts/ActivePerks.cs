@@ -43,6 +43,11 @@ public class ActivePerks : MonoBehaviour
     {
         trapRemainNum = 3;
         laserOn = false;
+        Vayne = false;
+        shootCount = 0;
+        Slow = false;
+        Pene = false;
+        MovingShot = false;
     }
 
     void Update()

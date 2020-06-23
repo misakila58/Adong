@@ -36,7 +36,7 @@ public class Bottle : MonoBehaviour
         instance = this;
         shooting = GameObject.FindGameObjectWithTag("Crossbow").GetComponent<Shooting>();
         FoundObjects = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
-        
+        Destroy(gameObject, 10f);
     }
 
     public void ShockWaveInit(Vector3 boss,Vector3 crossbow)

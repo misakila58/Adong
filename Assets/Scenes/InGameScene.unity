@@ -847,6 +847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpawner: {fileID: 1380443044}
   dialougeManager: {fileID: 1992082977}
+  playerControl: {fileID: 1942276631}
   nameText:
   - {fileID: 282831420}
   - {fileID: 770973842}
@@ -3753,9 +3754,9 @@ MonoBehaviour:
   upgradePanel: {fileID: 179428846}
   curKills: 0
   remainKills: 0
-  startRemainKills: 1
+  startRemainKills: 5
   startSpawnDelay: 1.2
-  remainKillsAddAmount: 0
+  remainKillsAddAmount: 5
   spawnDelayReduceAmount: 0.08
   curStage: 0
 --- !u!4 &1380443045
@@ -3779,7 +3780,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380443043}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d262bfd99e06e747b724118ecaee2e0, type: 3}
   m_Name: 
@@ -5805,7 +5806,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04083711, y: 0}
+  m_Offset: {x: 0.04083711, y: 0.4970714}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5816,7 +5817,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5825589, y: 1.6747159}
+  m_Size: {x: 0.4338658, y: 0.6805732}
   m_EdgeRadius: 0
 --- !u!1 &1945399334
 GameObject:

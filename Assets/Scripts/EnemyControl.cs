@@ -86,7 +86,11 @@ public class EnemyControl : MonoBehaviour
             }                
 
             if (ActivePerks.Slow)
-                StartCoroutine(Slow());
+            {
+                var b = col.GetComponent<Bullet>();
+                if (b.peneCount == 1)
+                    StartCoroutine(Slow());
+            }                
         }
 
         if (col.transform.tag == "Trap")

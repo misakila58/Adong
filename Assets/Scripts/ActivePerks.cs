@@ -128,7 +128,7 @@ public class ActivePerks : MonoBehaviour
 
     public void TrapPlant()
     {
-        if (TrapMode)
+        if (TrapMode && !Pause.GamePaused)
         {
             Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono);
             Vector3 adjustZ = new Vector3(worldPoint.x, worldPoint.y, trapObject.transform.position.z);
